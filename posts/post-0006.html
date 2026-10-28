@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모두의 CAD - TECH ARTICLE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../img/MODU_logo.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        techdark: { 950: '#0b0f19', 900: '#0f172a', 800: '#1e293b' },
+                        neonBlue: { 400: '#3b82f6', 500: '#1d4ed8' },
+                        neonCyan: { 400: '#22d3ee' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-techdark-950 text-slate-100 font-sans min-h-screen flex flex-col">
+    <header class="bg-techdark-900/90 border-b border-slate-800 py-4 px-6 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="#" onclick="history.back(); return false;" class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-slate-300 cursor-pointer">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                이전 페이지로
+            </a>
+            <span class="text-xs text-neonCyan-400 font-mono">MODUCAD TECH ARTICLE</span>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-12 w-full">
+        <div class="border-b border-slate-800 pb-8 mb-8">
+            <span class="py-1 rounded-full text-xs font-bold bg-neonBlue-500/10 text-neonBlue-400 border border-neonBlue-500/30 uppercase">
+                기초지식
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-4 leading-snug">
+                PCB Library란?
+            </h1>
+            <div class="flex items-center text-xs text-slate-400 space-x-4">
+                <span><i class="fa-regular fa-calendar mr-1"></i> 2026.09.21</span>
+                <span><i class="fa-regular fa-user mr-1"></i>홍중배</span>
+            </div>
+        </div>
+
+
+        <article class="prose prose-invert max-w-none text-slate-300 space-y-6 text-base leading-relaxed">
+
+          <!-- Intro -->
+          <section>
+              <div class="mb-6">
+                  <p class="text-lg sm:text-xl font-semibold text-white leading-relaxed">
+                      좋은 PCB 설계는 좋은 Library에서 시작된다
+                  </p>
+              </div>
+
+              <!-- 이미지 파일 예: ../posts/img-post-0006/pcb-library-main.png -->
+              <div class="rounded-2xl overflow-hidden mb-10 border border-slate-800">
+                  <img src="../posts/img-post-0006/schematic_required.jpeg"
+                       alt="PCB Library를 상징하는 이미지"
+                       class="w-full max-h-[400px] object-cover">
+              </div>
+          </section>
+
+          <!-- Section 1 -->
+          <section>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-12 mb-5 border-l-4 border-neonBlue-400 pl-4">
+                  1. PCB Library란 무엇인가?
+              </h2>
+
+              <p class="mb-4">
+                  PCB를 설계하려면 먼저 준비해야 하는 것이 있습니다. PCB는 부품들 간에 전기 신호가 연결되어
+                  작동하도록 해야 하는데, 이 복잡한 연결구조를 사람이 표현하고 이해하기 쉽도록 반드시 회로도를
+                  그려 놓아야 합니다.
+              </p>
+              <p>
+                  그런데 회로도에 사용되는 저항, IC, 커넥터와 같은 부품들은 단순한 그림이 아니라
+                  PCB 설계를 위한 기초 데이터 역할을 할 수 있도록 구성해야 합니다.
+              </p>
+
+              <div class="my-8 p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-700">
+                  <p class="text-lg sm:text-xl font-semibold text-white mb-4">
+                      PCB Library는 PCB 설계에 사용되는 모든 부품의 정보를 저장해 놓은
+                      <span class="text-neonCyan-400">데이터베이스(Database)</span>라고 생각하면 이해하기 쉽습니다.
+                  </p>
+
+                  <!-- 이미지 파일 예: ../posts/img-post-0006/library-database.png -->
+                  <div class="rounded-2xl max-w-[640px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                      <img src="../posts/img-post-0006/central_library.png"
+                           alt="PCB Library 데이터베이스 개념"
+                           class="w-full rounded-2xl mx-auto h-auto object-contain">
+                  </div>
+              </div>
+
+              <div class="flex flex-col md:flex-row gap-8 items-start my-4">
+
+                  <!-- 왼쪽 글 -->
+                  <div class="md:w-2/3">
+
+                      <p>
+                          예를 들어 메모리 부품 하나를 설계에 사용한다고 하면 단순히 “메모리”라는 이름만 필요한 것이 아닙니다.
+                          설계를 하기 위해서는 다음과 같은 정보가 반드시 필요합니다.
+                      </p>
+
+                      <ul class="space-y-1 list-disc pl-12 my-4 marker:text-neonCyan-400">
+                          <li>회로도에서 사용할 Symbol</li>
+                          <li>PCB에 배치할 Footprint (툴에 따라 decal, cell, geometry)</li>
+                          <li>부품의 식별 코드(Part Number) 및 부품의 특성</li>
+                      </ul>
+
+                      <p>필요에 따라 다음과 같은 추가 정보가 필요할 수도 있습니다.</p>
+
+                      <ul class="space-y-1 list-disc pl-12 my-4 marker:text-neonCyan-400">
+                          <li>3D Model</li>
+                          <li>Simulation Model</li>
+                          <li>공급업체 정보</li>
+                          <li>부품의 Lifecycle 정보</li>
+                      </ul>
+
+                  </div>
+
+                  <!-- 오른쪽 이미지 -->
+                  <div class="md:w-1/3">
+                      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                          <img src="../posts/img-post-0006/basic_library_example.png"
+                               alt="Pin의 역할을 설명하는 이미지"
+                               class="w-full rounded-2xl max-w-[480px] mx-auto h-auto object-contain">
+                      </div>
+                  </div>
+              </div>
+              
+              <br>
+              
+              <p class="mb-4">
+                  이러한 모든 정보가 하나의 Library 안에서 관리됩니다.
+              </p>
+              <p>
+                  PCB 설계툴은 Library에 등록된 정보를 이용하여
+                  <strong class="text-white">회로도 작성 → PCB Layout → BOM 작성 → 제조 → 조립</strong>
+                  까지 연결하게 됩니다.
+              </p>
+
+              <!-- 이미지 파일 예: ../posts/img-post-0006/library-flow.png -->
+              <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                  <img src="../posts/img-post-0006/library_affects_entire_process.png"
+                       alt="PCB Library에서 회로도, PCB Layout, BOM, 제조, 조립으로 이어지는 흐름"
+                       class="w-full rounded-2xl mx-auto h-auto object-contain">
+              </div>
+
+              <div class="my-10 p-6 sm:p-8 rounded-2xl border border-neonBlue-500/30 bg-neonBlue-500/5">
+                  <p class="font-semibold text-white mb-0">
+                      따라서 PCB Library는 PCB 설계의 출발점이자, 모든 설계 데이터의 기준이라고 할 수 있습니다.
+                  </p>
+              </div>
+          </section>
+
+          <!-- Section 2 -->
+          <section>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">
+                  2. PCB Library의 구성 요소
+              </h2>
+
+              <p>
+                  PCB Library에는 부품의 모습과 함께 다양한 정보를 하나로 연결하여 관리합니다.
+                  PCB Library에서 관리되는 대표적인 정보는 다음과 같습니다.
+              </p>
+              
+              <br>
+              
+              <div class="flex flex-col md:flex-row gap-16 items-start ml-8 mr-8 my-4">
+                  <div class="md:w-4/5">
+                  <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">1) Symbol</h3>
+                      
+                      <p class="mb-4">
+                          회로도를 작성할 때에는 저항, 캐패시터, OP AMP, 메모리 IC 등 여러 종류의 부품을
+                          사람이 이해하기 쉬운 모양으로 표현해야 합니다.
+                      </p>
+                      <p class="mb-4">
+                          Symbol은 이러한 부품들을 회로도에서 쉽게 알아보기 위해 사용되는 기호입니다.
+                      </p>
+                      <p class="mb-0">
+                          따라서 실제 부품의 모습과는 다르게, 해당 부품의 기능을 상징하는 모습으로 되어 있습니다.
+                      </p>
+                      
+                  </div>
+                  <div class="md:w-1/5">
+                      <!-- 이미지 파일 예: ../posts/img-post-0006/symbol.png -->
+                      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                          <img src="../posts/img-post-0006/symbol.png"
+                               alt="PCB Library Symbol 예시"
+                               class="w-full max-w-[420px] mx-auto h-auto object-contain">
+                      </div>
+                  </div>
+              </div>
+
+              <br>
+              
+              <h3 class="text-xl sm:text-2xl font-bold text-white ml-8 mr-8 mb-4">2) Footprint</h3>
+              <div class="flex flex-col md:flex-row gap-16 items-start ml-8 mr-8 my-4">
+                  <div class="md:w-4/5">
+                      <p class="mb-4">
+                          Footprint는 PCB 기판 위에 부품이 놓이는 모습을 상징하는 패턴으로,
+                          납땜이 되어 전기신호가 연결되는 형상을 포함하고 있습니다.
+                      </p>
+                      <p class="mb-4">
+                          예를 들어 같은 용량의 저항이라도 0402, 0603, 0805, 1206 등의 패키지 종류에 따라 Footprint가 달라집니다.
+                          IC 부품 역시 QFP, QFN, BGA, SOP 등 Package, 즉 부품 외형 규격에 따라 Footprint가 모두 달라집니다.
+                      </p>
+                      <p class="mb-4">
+                          PCB 기판을 제조할 때에는 설계 데이터에 표현된 Footprint를 기준으로 Copper Pad,
+                          Solder Mask, Paste Mask, Silkscreen 등을 처리하여 부품이 적절히 안착될 수 있도록 합니다.
+                      </p>
+                      <p class="font-semibold text-white mb-0">
+                          즉, Footprint는 실제 생산 품질을 결정하는 매우 중요한 데이터입니다.
+                      </p>
+                  </div>
+                  <div class="md:w-1/5">
+                      <!-- 이미지 파일 예: ../posts/img-post-0006/footprint.png -->
+                      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                          <img src="../posts/img-post-0006/footprint.jpg"
+                               alt="PCB Library Footprint 예시"
+                               class="w-full max-w-[420px] mx-auto h-auto object-contain">
+                      </div>
+                  </div>
+              </div>
+              
+              <br>
+              
+              <div class="flex flex-col md:flex-row gap-16 items-start ml-8 mr-8 my-4">
+                  <div class="md:w-4/5">
+                      <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">3) 부품 속성(Property)</h3>
+                      <p class="mb-4">
+                          부품은 다양한 속성 정보를 갖고 있습니다.
+                      </p>
+                      <p class="mb-4">
+                          예를 들면 Part Number, 제조사 정보, Description, Package, Value 값,
+                          Voltage 값, Value 오차범위, 온도범위 등입니다.
+                      </p>
+                      <p class="mb-0">
+                          이 정보는 BOM, 즉 부품목록의 작성에 사용되며, ERP, 조달 시스템, PLM,
+                          제조시스템과도 연결될 수 있습니다.
+                      </p>
+                  </div>
+                  <div class="md:w-1/5">
+                      <!-- 이미지 파일 예: ../posts/img-post-0006/property.png -->
+                      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                          <img src="../posts/img-post-0006/property.png"
+                               alt="PCB Library Property 예시"
+                               class="w-full max-w-[420px] mx-auto h-auto object-contain">
+                      </div>
+                  </div>
+              </div>
+              
+              <br>
+              
+              <div class="flex flex-col md:flex-row gap-16 items-start ml-8 mr-8 my-4">
+                  <div class="md:w-4/5">
+                      <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">4) 3D Model</h3>
+                      <p class="mb-4">
+                          최근 PCB 설계에서는 3D Model 사용이 매우 일반화되었습니다.
+                      </p>
+                      <p class="mb-4">
+                          3D Model을 이용하면 기구 간섭 확인, 제품 조립성 검토, 다양한 시뮬레이션 등이 가능합니다.
+                      </p>
+                      <p class="mb-0">
+                          특히 기구 설계(MCAD)와 긴밀하게 협업할 때에 필수 요소가 되었습니다.
+                      </p>
+                  </div>
+                  <div class="md:w-1/5">
+                      <!-- 이미지 파일 예: ../posts/img-post-0006/3d-model.png -->
+                      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                          <img src="../posts/img-post-0006/3d_model.jpg"
+                               alt="PCB Library 3D Model 예시"
+                               class="w-full max-w-[420px] mx-auto h-auto object-contain">
+                      </div>
+                  </div>
+              </div>
+              
+              <br>
+              
+              <div class="flex flex-col md:flex-row gap-16 items-start ml-8 mr-8 my-4">
+                  <div class="md:w-4/5">
+                      <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">5) Simulation Model</h3>
+                      <p class="mb-4">
+                          고속 회로나 아날로그 회로에서는 Simulation Model도 함께 사용됩니다.
+                      </p>
+                      <p class="mb-4">
+                          대표적으로 SPICE Model, IBIS Model 등이 있습니다.
+                      </p>
+                      <p class="mb-0">
+                          Simulation Model을 사용하면 PCB 실물을 제작하기 전에 미리 신호 품질 등을 검증해서
+                          실패를 방지하고 비용과 시간을 축소시킬 수 있습니다.
+                      </p>
+                  </div>
+                  <div class="md:w-1/5">
+                      <!-- 이미지 파일 예: ../posts/img-post-0006/simulation-model.png -->
+                      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                          <img src="../posts/img-post-0006/simulation_model.png"
+                               alt="PCB Library Simulation Model 예시"
+                               class="w-full max-w-[420px] mx-auto h-auto object-contain">
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+          <!-- Section 3 -->
+          <section>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">
+                  3. 왜 중앙 Library가 필요한가?
+              </h2>
+
+              <p>
+                  많은 회사에서는 처음에는 개인이 직접 자신에게 필요한 Library를 만들어 사용합니다.
+                  처음에는 문제가 없어 보이지만 조금만 시간이 지나도 여러 문제에 부딪히게 됩니다.
+              </p>
+              <p>
+                  대표적인 문제는 동일한 부품을 설계자마다 서로 다르게 표현하는 것입니다.
+              </p>
+
+              <div class="my-8 p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-700">
+                  <p class="mb-4">
+                      예를 들어 동일한 IC인데 설계자 A는 <strong class="text-white">soic_8p-final</strong>,
+                      설계자 B는 <strong class="text-white">soic-8p-logic</strong>,
+                      설계자 C는 <strong class="text-white">soic_8p-ss</strong>라는 이름으로
+                      Symbol을 등록할 수도 있습니다.
+                  </p>
+                  <p class="mb-0">
+                      Symbol의 모양이나 Footprint의 모양도 조금씩 달라질 수 있습니다.
+                  </p>
+                  <!-- 이미지 파일 예: ../posts/img-post-0006/central-library-problem.png -->
+                  <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                      <img src="../posts/img-post-0006/personal_library2.png"
+                           alt="설계자별 개별 Library 사용으로 인한 차이"
+                           class="w-full rounded-2xl mx-auto h-auto object-contain">
+                  </div>
+              </div>
+
+              <p class="mb-4">
+                  이렇게 되면 관리의 어려움뿐 아니라 중복작업, BOM 오류, 생산 오류 또는 품질 차이 등이 발생하게 됩니다.
+              </p>
+              <p class="mb-4">
+                  따라서 기업에서는 개인 Library 대신 <strong class="text-white">표준 Library(Central Library)</strong>를
+                  구축하여 모든 설계자가 동일한, 검증된 Library를 사용하도록 해야 합니다.
+              </p>
+              <p class="font-semibold text-white">
+                  중앙 Library는 ERP에서부터 CAD, BOM, 조달 시스템, PLM, 제조시스템까지 연결되는 핵심 데이터가 됩니다.
+              </p>
+          </section>
+
+          <!-- Section 4 -->
+          <section>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">
+                  4. 왜 Library 관리가 회사 경쟁력인가?
+              </h2>
+
+              <p class="mb-4">
+                  많은 사람들이 PCB 설계 능력이 제일 중요하다고 생각합니다.
+                  하지만 실제 제조 현장에서는 Library 품질이 제품 품질을 결정하는 경우가 매우 많습니다.
+              </p>
+
+              <p>
+                  대표적인 사례로 Footprint의 Pad 크기나 길이가 잘못 설계되었다고 가정해 보겠습니다.
+                  설계 단계에서는 문제가 없어 보일 수 있습니다.
+                  하지만 생산에서는 납땜 불량, Open(신호단선), Short(신호단락) 등이 발생할 수 있습니다.
+              </p>
+
+              <!-- 이미지 파일 예: ../posts/img-post-0006/footprint-quality.png -->
+              <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                  <img src="../posts/img-post-0006/bad_pcb_manufactured.png"
+                       alt="Footprint 오류로 인한 납땜 품질 문제 예시"
+                       class="w-full max-w-[560px] mx-auto h-auto object-contain">
+              </div>
+
+              <p>
+                  수리가 어려운 위치에서 이런 문제가 발생하면 결국 조립된 PCB를 전부 폐기하고 다시 제작해야 하는
+                  상황도 생길 수 있습니다. 이러한 문제는 Library의 오류에서 시작되는 경우가 많습니다.
+              </p>
+              
+              <br>
+              
+              <p>
+                  Library 관리가 잘 되면 이미 검증된 Symbol과 Footprint를 반복해서 다른 설계에 사용할 수 있습니다.
+                  이를 통해 설계시간 단축, 검증비용 절감, 품질향상, 생산안정성 확보, 도면 재활용 등 여러 효과를 볼 수 있습니다
+              </p>
+
+              <div class="my-10 p-6 sm:p-8 rounded-2xl border border-neonBlue-500/30 bg-neonBlue-500/5">
+                  <p class="text-lg font-semibold text-white mb-0">
+                      즉, 좋은 Library는 단순한 데이터가 아니라 회사의
+                      <span class="text-neonCyan-400">설계 자산(Know-how)</span>이라고 할 수 있습니다.
+                  </p>
+              </div>
+
+              <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                  <img src="../posts/img-post-0006/well-managed-library.png"
+                       alt="잘 관리된 Library의 효과"
+                       class="w-full rounded-2xl mx-auto h-auto object-contain">
+              </div>
+              
+          </section>
+
+          <!-- Section 5 -->
+          <section>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">
+                  5. Library를 어떻게 표준화할 것인가?
+              </h2>
+
+              <p>
+                  기업에서는 Library를 체계적으로 관리하기 위한 표준을 정하여 중앙에 통합된 Central Library를 운영해야 합니다.
+                  대표적인 관리 방법은 다음과 같습니다.
+              </p>
+
+              <div class="grid gap-4 my-4">
+                  <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800">
+                      <h3 class="text-lg font-bold text-white mb-2">1) 모든 부품은 일정한 규칙으로 이름을 작성해야 합니다.</h3>
+                      <p class="mb-4">
+                          예를 들어 Footprint의 이름을 res_0402, cap_0603, ic_qfp16_p0.8처럼 일관된 규칙을 사용하고,
+                          동일한 형상을 가진 부품이 공유하여 사용하면 검색과 관리가 쉬워집니다.
+                      </p>
+                      <h3 class="text-lg font-bold text-white mb-2">2) 등록 및 변경에 대한 승인 절차가 필요합니다.</h3>
+                      <p class="mb-4">
+                          기업의 중앙 Library는 아무나 임의로 수정하면 안 됩니다.
+                          새로운 부품을 등록하거나 기존 데이터를 수정할 때에는 검토와 승인 절차를 거치도록 하여
+                          <strong class="text-white">요청 → 제작 → 검토 → 승인 → 등록</strong>과 같은 프로세스를 운영합니다.
+                      </p>
+                      <h3 class="text-lg font-bold text-white mb-2">3) 변경 이력을 관리해야 합니다.</h3>
+                      <p class="mb-4">
+                          Footprint가 수정되거나 속성이 변경되면 언제, 누가, 왜 변경했는지를 기록해야 합니다.
+                          이러한 변경 이력은 문제 발생 시 원인을 추적하는 데 매우 중요한 역할을 합니다.
+                      </p>
+                      <h3 class="text-lg font-bold text-white mb-2">4) 배포 관리가 잘 되어야 합니다.</h3>
+                      <p class="mb-4>
+                          Library가 수정되었다면 모든 설계자가 동일한 최신 버전을 사용하도록 유도해야 합니다.
+                          그렇지 않으면 어떤 설계자는 이전 Library를 사용하여 품질 문제가 발생할 수 있습니다.
+                      </p>
+                      <p class="mb-0">
+                          따라서 중앙 서버를 이용한 배포(공유)와 백업 관리가 필수적입니다.
+                      </p>
+                      <!-- 이미지 파일 예: ../posts/img-post-0006/central-library-standard.png -->
+                      <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                          <img src="../posts/img-post-0006/standard_library_management.png"
+                               alt="Central Library 표준화와 배포 관리 구조"
+                               class="w-full rounded-2xl mx-auto h-auto object-contain">
+                      </div>
+                  </div>
+              </div>
+              
+
+          </section>
+
+          <!-- Closing -->
+          <section class="mt-14">
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mb-5 border-l-4 border-neonBlue-400 pl-4">
+                  마무리
+              </h2>
+
+              <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-neonBlue-500/10 to-slate-900 border border-slate-700">
+                  <p class="mb-4">
+                      PCB Library는 단순히 부품의 Symbol과 Footprint 형상만을 저장하는 공간이 아닙니다.
+                  </p>
+                  <p class="mb-4">
+                      회로도(Symbol), PCB 패턴(Footprint), 부품 속성, 3D Model, 시뮬레이션 모델 등
+                      설계와 제조에 필요한 모든 정보를 연결하는 핵심 데이터베이스입니다.
+                  </p>
+                  <p class="mb-4">
+                      특히 기업에서는 중앙 Library를 구축하고 표준화된 관리 체계를 운영함으로써 설계 품질을 높이고,
+                      부품 재사용을 확대하며, ERP·PLM과 같은 시스템과의 연계를 통해 업무 효율을 향상시킬 수 있습니다.
+                  </p>
+                  <p class="mb-0 font-semibold text-white">
+                      결국 잘 관리되는 PCB Library는 설계자의 생산성을 높이는 도구일 뿐만 아니라,
+                      회사의 기술 자산이자 경쟁력을 결정하는 중요한 기반입니다.
+                  </p>
+              </div>
+          </section>
+
+        </article>
+
+        
+        <!--
+        <div class="mt-16 p-6 rounded-2xl bg-techdark-900 border border-slate-800 flex justify-between items-center">
+            <div>
+                <h4 class="font-bold text-white text-sm">기술 자문 문의</h4>
+                <p class="text-xs text-slate-400 mt-1">전자 데이터 통합 관리나 EDA 환경 자문이 필요하신가요?</p>
+            </div>
+            <a href="../index.html" class="px-4 py-2 text-xs font-bold bg-neonBlue-500 text-white rounded-lg hover:bg-neonBlue-600 transition">
+                문의하기
+            </a>
+        </div>
+        -->
+    </main>
+
+</body>
+</html>

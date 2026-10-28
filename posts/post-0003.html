@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모두의 CAD - TECH ARTICLE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../img/MODU_logo.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        techdark: { 950: '#0b0f19', 900: '#0f172a', 800: '#1e293b' },
+                        neonBlue: { 400: '#3b82f6', 500: '#1d4ed8' },
+                        neonCyan: { 400: '#22d3ee' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-techdark-950 text-slate-100 font-sans min-h-screen flex flex-col">
+    <header class="bg-techdark-900/90 border-b border-slate-800 py-4 px-6 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="#" onclick="history.back(); return false;" class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-white cursor-pointer">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                이전 페이지로
+            </a>
+            <span class="text-xs text-neonCyan-400 font-mono">MODUCAD TECH ARTICLE</span>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-12 w-full">
+        <div class="border-b border-slate-800 pb-8 mb-8">
+            <span class="py-1 rounded-full text-xs font-bold bg-neonBlue-500/10 text-amber-400 border border-neonBlue-500/30 uppercase">
+                업계동향
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-4 leading-snug">AI 발전으로 PCB 설계자의 역할이 사라질까?</h1>
+            <p class="text-lg text-slate-400 mb-5">Cadence, ‘AuraStack AI Super Agent’ 공개… PCB 설계의 패러다임 전환 예고</p>
+            <div class="flex items-center text-xs text-slate-400 space-x-4">
+                <span><i class="fa-regular fa-calendar mr-1"></i> 2026.09.11</span>
+                <span><i class="fa-regular fa-user mr-1"></i>홍중배</span>
+            </div>
+        </div>
+
+        <article class="prose prose-invert max-w-none text-slate-300 space-y-6 text-base leading-relaxed">
+
+            <section>
+                <p class="text-lg sm:text-xl font-semibold text-white leading-relaxed mb-4">PCB 설계 환경이 빠르게 변하고 있습니다.</p>
+                <p class="mb-4">
+                    2026년 7월, 글로벌 EDA 기업 Cadence가 AI 기반 설계 혁신 플랫폼 <strong class="text-white">‘AuraStack AI Super Agent’</strong>를 공개했습니다.
+                    회사가 제시한 방향은 단순히 PCB 설계 프로그램에 AI 기능을 하나 추가하는 수준을 넘어섭니다.
+                </p>
+                <p class="mb-4">
+                    설계자가 목표와 조건을 제시하면 여러 AI 에이전트가 설계 탐색과 구현, 검증, 최적화를 연계하는 이른바 <strong class="text-neonCyan-400">Agentic AI</strong>
+                    환경을 구축하겠다는 것입니다.
+                </p>
+                <div class="rounded-2xl overflow-hidden my-10 max-w-[640px] mx-auto border border-slate-800 bg-techdark-900/50">
+                    <img src="./img-post-0003/ai_pcb_design.png" alt="Cadence AuraStack AI Super Agent와 PCB 설계자의 미래를 상징하는 이미지" class="w-full h-auto object-cover">
+                </div>
+                <p>이 소식과 함께 자연스럽게 질문이 따라옵니다.</p>
+                <div class="px-8">
+                    <div class="my-8 p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-700 text-center">
+                        <p class="text-2xl sm:text-3xl font-black text-white mb-0">“PCB 설계자는 앞으로 AI 에 의해 대체될까?”</p>
+                    </div>
+                </div>
+                <p>이번 글에서는 Cadence의 발표 내용을 중심으로, AI가 PCB 설계 업무를 어떻게 바꾸려 하는지, 그리고 설계자의 역할은 앞으로 어떻게 변하게 될 지 예측해 봅니다.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">1. AuraStack AI Super Agent</h2>
+                <p class="mb-4">
+                    Cadence가 2026년 7월 15일(미국 현지시간) 공개한 AuraStack AI Super Agent는 <strong class="text-white">PCB와 첨단 패키징 설계를 대상으로 하는 Agentic AI 플랫폼</strong>입니다.
+                    Cadence에 따르면 Allegro AI Studio 위에서 동작하며, 시스템 계획부터 구현, 제조 가능성 검토와 다중물리 해석까지 처리하는 것을 목표로 합니다.</p>
+                <p>
+                    여기서 중요한 것은 ‘AI가 PCB 배선을 자동화한다’는 개념을 넘어 <strong class="text-white">설계 의도를 이해하고 여러 작업을 연쇄적으로 수행하도록 만드는 것</strong>입니다.
+                </p>
+                <div class="grid md:grid-cols-5 gap-3 my-8 px-8 text-center">
+                    <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800"><div class="text-neonCyan-400 font-bold">01</div><div class="text-sm text-white mt-2">목표 이해</div></div>
+                    <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800"><div class="text-neonCyan-400 font-bold">02</div><div class="text-sm text-white mt-2">설계 탐색</div></div>
+                    <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800"><div class="text-neonCyan-400 font-bold">03</div><div class="text-sm text-white mt-2">구현·최적화</div></div>
+                    <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800"><div class="text-neonCyan-400 font-bold">04</div><div class="text-sm text-white mt-2">검증·해석</div></div>
+                    <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800"><div class="text-neonCyan-400 font-bold">05</div><div class="text-sm text-white mt-2">최종 설계안</div></div>
+                </div>
+                <p>Cadence가 설명하는 주요 영역에는 시스템 계획, 제약조건 관리, 설계 재사용, 배치·배선, 제조성 검토, SI/PI 및 열·기계 해석 등이 포함됩니다. 즉 PCB 설계의 특정 한 단계가 아니라 <strong class="text-neonCyan-400">설계 과정 전체를 연결하는 방향</strong>입니다.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">2. 15X, 2X, 그리고 28%</h2>
+                <p>아래의 수치는 <strong class="text-white">Cadence가 데모를 통해 제시한 수치</strong>입니다.</p>
+                <div class="grid md:grid-cols-3 gap-4 my-8 px-8">
+                    <div class="p-6 rounded-2xl bg-neonBlue-500/10 border border-neonBlue-500/30 text-center">
+                        <div class="text-5xl sm:text-6xl font-black text-neonCyan-400">15X</div>
+                        <div class="font-bold text-white mt-2">생산성 향상</div>
+                        <p class="text-sm text-slate-400 mt-2 mb-0">Cadence에서 제시한 최대 생산성 개선 수준</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-neonBlue-500/10 border border-neonBlue-500/30 text-center">
+                        <div class="text-5xl sm:text-6xl font-black text-neonCyan-400">2X</div>
+                        <div class="font-bold text-white mt-2">Time-to-Market</div>
+                        <p class="text-sm text-slate-400 mt-2 mb-0">제품 출시까지의 기간을 최대 2배 빠르게 한다는 목표</p>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-neonBlue-500/10 border border-neonBlue-500/30 text-center">
+                        <div class="text-5xl sm:text-6xl font-black text-neonCyan-400">28%</div>
+                        <div class="font-bold text-white mt-2">비용 절감</div>
+                        <p class="text-sm text-slate-400 mt-2 mb-0">5G 스마트폰 PCB 재설계 데모에서 제시된 비용 절감안</p>
+                    </div>
+                </div>
+                <p class="mb-4">
+                    Reuters 보도에 따르면 Cadence의 시연에서는 5G 스마트폰 PCB를 재설계하면서 부품 통합과 호환 가능한 저비용 전원관리 칩 등을 찾아
+                    <strong class="text-white">28%의 비용 절감 방안</strong>이 제시되었습니다.
+                </p>
+                <p>
+                    * 이 수치는 업체가 제시한 특정 사례로, 모든 PCB 설계에서 동일한 결과를 보장한다는 의미는 아닙니다
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">3. AI는 ‘선을 잘 긋는 도구’에서 ‘설계를 판단하는 도구’로</h2>
+                <p class="mb-4">PCB 설계에서 자동화는 새로운 이야기가 아닙니다. 자동 배선, 부품 배치 최적화, 설계 규칙 검사, 시뮬레이션 등은 이미 오래전부터 설계툴에 존재했습니다.</p>
+                <p>이번 발표는 <strong class="text-white">여러 기능을 AI가 하나의 목표 아래 연결하려 한다는 점</strong>에서 차이가 있습니다.</p>
+                <div class="px-8">
+                  <div class="my-8 p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-700">
+                      <div class="grid md:grid-cols-[2fr_1fr] gap-8 items-top">
+                          <!-- 왼쪽 : 설명 -->
+                          <div>
+                              <p class="text-lg font-semibold text-white mb-4">기존 자동화</p>
+                              <p class="mb-6">“이 작업을 자동으로 해줘” → 특정 기능 실행 → 결과 확인</p>
+                              <p class="text-lg font-semibold text-white mb-4">Agentic AI가 지향하는 방식</p>
+                              <p class="mb-0">“이 목표를 만족하는 설계를 해줘” → AI가 작업 순서를 계획 → 여러 도구 실행 → 결과 비교 → 다시 수정,검증</p>
+                          </div>
+                          <!-- 오른쪽 : 이미지 -->
+                          <div class="flex justify-center">
+                              <img  src="./img-post-0003/ai_auto.png" alt="Agentic AI 기반 PCB 설계 자동화" class="w-full max-w-md rounded-xl">
+                          </div>
+                      </div>
+                  </div>        
+                </div>        
+                <p>Cadence는 AuraStack을 통해 설계의도와 제약조건, 물리적 구조, 제품레벨의 trade-off를 공유하는 환경을 제시하고 있습니다. 특히 전기·열·기계 특성을 연속적으로 함께 검토하는 <strong class="text-neonCyan-400">다중물리(멀티피직스) 반복구조</strong>를 강조합니다.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">4. 그렇다면 PCB 설계자는 정말 사라질까?</h2>
+                <p>현재 공개된 내용만으로 “AI가 PCB 설계자를 대체한다”고 결론 내리기는 어렵습니다. 오히려 가까운 미래에 <strong class="text-white">설계자의 업무가 바뀌는</strong> 시나리오로 해석할 수 있습니다.</p>
+                <div class="px-8">
+                    <div class="grid md:grid-cols-2 gap-5 my-8">
+                        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-700">
+                            <h3 class="text-xl font-bold text-white mb-4">AI가 맡기 쉬운 영역</h3>
+                            <ul class="space-y-0 list-disc pl-6 marker:text-neonCyan-400">
+                                <li>반복적인 배치·배선 작업</li>
+                                <li>수많은 설계 대안의 탐색</li>
+                                <li>규칙 위반 확인 및 일부 검증 작업</li>
+                                <li>설계 데이터 비교·정리</li>
+                                <li>시뮬레이션과 최적화 반복</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-slate-900/70 border border-neonBlue-500/30">
+                            <h3 class="text-xl font-bold text-white mb-4">여전히 사람의 판단이 중요한 영역</h3>
+                            <ul class="space-y-0 list-disc pl-6 marker:text-neonCyan-400">
+                                <li>제품 요구사항과 우선순위 정의</li>
+                                <li>성능·원가·일정 사이의 의사결정</li>
+                                <li>설계 결과의 타당성 판단</li>
+                                <li>제품과 제조환경에 대한 경험적 판단</li>
+                                <li>새로운 구조, 해결책을 만드는 창의적 설계</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p>쉽게 말하면, AI가 <strong class="text-neonCyan-400">“손이 많이 가는 일”</strong>을 가져갈수록 설계자는 <strong class="text-neonCyan-400">“무엇을 만들어야 하는가, 어떤 선택을 해야 하는가”</strong>에 더 많은 시간을 쓰게 될 가능성이 있습니다.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">5. 중요한 것은 AI 자체보다 ‘데이터’를 이해하고 관리하는 것</h2>
+                <p class="mb-4">그렇다면 AI를 활용해서 설계를 잘하기 위해 설계자는 어떤 준비를 해야할까요?</p>
+                <p>제품 요구사항뿐 아니라 회사의 설계 규칙, 부품 라이브러리, 검증된 회로 블록, 재사용 설계, 제조 조건, 과거 설계 데이터 등을 이해해야 합니다.</p>
+                <div class="px-8">
+                    <div class="my-8 p-6 sm:p-8 rounded-2xl border border-neonBlue-500/30 bg-neonBlue-500/5">
+                        <p class="text-lg sm:text-xl font-semibold text-white mb-3">AI 시대의 PCB 설계 경쟁력</p>
+                        <p class="mb-4 text-left text-xl sm:text-2xl font-black text-neonCyan-400">= AI 모델 + EDA 도구 + 설계 데이터 + 표준화된 설계 지식</p>
+                        <div class="rounded-2xl overflow-hidden mb-0 max-w-[640px] mx-auto border border-slate-800 bg-techdark-900/50">
+                            <img src="./img-post-0003/prepare_pcb_ai.png" alt="Cadence AuraStack AI Super Agent와 PCB 설계자의 미래를 상징하는 이미지" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+                <p class="mb-4">
+                    따라서 AI를 도입한다고 해서 기존의 PCB 설계 인프라의 중요성이 없어지는 것은 아닙니다.
+                </p>
+                <p>
+                    오히려 <strong class="text-white">Library, Design Rule, Reuse Block, 설계 표준, 검증용 데이터</strong>가 얼마나 체계적으로 정리되어 있고
+                    설계 데이터가 잘 관리되고 있는지가 AI 활용 수준을 좌우할 가능성이 있습니다.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">6. Cadence가 그리는 AI 설계의 방향</h2>
+                <p>Cadence는 AuraStack만 별도로 발표한 것이 아니라, 앞서 ChipStack, InnoStack, ViraStack 등으로 확장해 온 AI Super Agent 전략을 PCB와 첨단 패키징 영역까지 연결하고 있습니다.</p>
+                <div class="px-8">
+                    <div class="my-8 grid md:grid-cols-3 gap-4">
+                        <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 text-center"><div class="text-neonCyan-400 font-bold">CHIP</div><div class="text-white font-semibold mt-2">ChipStack</div><p class="text-sm text-slate-400 mt-2 mb-0">칩 설계·검증</p></div>
+                        <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 text-center"><div class="text-neonCyan-400 font-bold">PACKAGE</div><div class="text-white font-semibold mt-2">InnoStack</div><p class="text-sm text-slate-400 mt-2 mb-0">첨단 패키징</p></div>
+                        <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 text-center"><div class="text-neonCyan-400 font-bold">SYSTEM</div><div class="text-white font-semibold mt-2">AuraStack</div><p class="text-sm text-slate-400 mt-2 mb-0">PCB·패키지·멀티피직스</p></div>
+                    </div>
+                </div>
+                <p>이 흐름이 의미하는 바는 명확합니다. 앞으로 EDA 업계는 개별 CAD 기능의 우열을 넘어 <strong class="text-white">칩에서 패키지, PCB와 물리적인 검증까지 얼마나 자연스럽게 연결할 수 있는가</strong>를 두고 치열한 경쟁이 벌어지게 될 것입니다.</p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">마무리 — 사라지는 것은 설계자가 아니라 ‘반복 작업’이다</h2>
+                <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-neonBlue-500/10 to-slate-900 border border-slate-700">
+                    <p class="mb-4">Cadence의 AuraStack AI Super Agent 발표는 PCB 설계가 AI와 결합하는 방향을 구체적으로 보여주는 사례입니다. <strong class="text-white">15X 생산성, 2X Time-to-Market, 28% 비용 절감 데모</strong>와 같은 거대한 가능성이 제시되었습니다. 다만, 실제 현장에서 어느 정도의 효과가 재현될지는 별도로 검증해야 할 과제이기도 합니다.</p>
+                    <p class="mb-4">따라서 지금 시점에서 “AI 때문에 PCB 설계자가 사라진다”고 단정하기보다는, <strong class="text-neonCyan-400">설계자의 역할이 반복 작업 중심에서 목표 설정·검토·의사결정·시스템 최적화 중심으로 이동할 것</strong>이라는 관점이 더 현실적입니다.</p>
+                    <p class="mb-0">결국 AI 시대의 PCB 설계자에게 중요한 질문은 “AI가 나를 대신할까?”가 아니라 <strong class="text-white">“AI를 잘 활용하기 위한 준비가 되어 있는가?”</strong>가 될 것입니다.</p>
+                </div>
+            </section>
+
+            <section class="mt-12 pt-8 border-t border-slate-800">
+                <h3 class="text-lg font-bold text-white mb-4">자료 출처</h3>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li>Cadence, “Cadence Introduces AuraStack AI Super Agent…”, 2026.07.15/16</li>
+                    <li>Reuters, “Cadence rolls out AI agent to speed circuit board, chip packaging design”, 2026.07.15</li>
+                    <li>Cadence, AuraStack AI Super Agent 제품 설명 및 데모 자료</li>
+                </ul>
+                <p class="text-xs text-slate-500 mt-4 mb-0">※ 15X·2X는 Cadence가 제시한 기대 효과이며, 28%는 공개 데모에서 제시된 사례 수치입니다. 실제 프로젝트의 효과는 설계 복잡도, 데이터 품질, 적용 범위 등에 따라 달라질 수 있습니다.</p>
+            </section>
+        </article>
+    </main>
+</body>
+</html>

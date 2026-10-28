@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ko" class="h-full scroll-smooth scroll-pt-20">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>MODU DA | 프로젝트·문서·일정 관리 협업 솔루션</title>
+        <meta name="description" content="프로젝트·문서·일정·업무 이력을 연결하는 MODU DA 협업 솔루션 소개">
+        <link rel="icon" type="image/png" href="img/MODU_logo.png">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            techdark: { 950: '#0b0f19', 900: '#0f172a', 800: '#1e293b' },
+                            neonBlue: { 400: '#3b82f6', 500: '#1d4ed8' },
+                            neonCyan: { 400: '#22d3ee' }
+                        },
+                        fontFamily: {
+                            sans: ['Inter', 'Noto Sans KR', 'sans-serif']
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body class="m-0 bg-techdark-950 text-slate-300 font-sans text-sm leading-relaxed break-words [word-break:keep-all]">
+        <header class="bg-techdark-900/95 border-b border-slate-800 px-6 py-4 sticky top-0 z-50 backdrop-blur-lg max-sm:px-4 max-sm:py-3.5">
+            <div class="max-w-5xl mx-auto flex items-center justify-between gap-4">
+                <a href="#" onclick="if(history.length>1){history.back()}else{location.href='index.html'};return false" class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-slate-300 cursor-pointer">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    이전 화면으로
+                </a>
+                <div class="flex items-center gap-8 max-sm:hidden">
+                    <a href="#features" class="text-xs text-slate-400 hover:text-cyan-500 hover:font-bold no-underline">핵심 기능</a>
+                    <a href="#ai-features" class="text-xs text-slate-400 hover:text-cyan-500 hover:font-bold no-underline">AI</a>
+                    <a href="#workflow" class="text-xs text-slate-400 hover:text-cyan-500 hover:font-bold no-underline">업무 연계와 흐름</a>
+                    <a href="#benefits" class="text-xs text-slate-400 hover:text-cyan-500 hover:font-bold no-underline">기대 효과</a>
+                </div>
+                <a href="./moduda.html" class="font-mono text-xs font-extrabold tracking-wider text-neonCyan-400 whitespace-nowrap">
+                  MODU <span class="text-red-500">DA</span>
+                </a>
+            </div>
+        </header>
+        <main>
+            <section id="hero" class="pt-20 pb-0 relative overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_72%_0%,rgba(34,211,238,0.095),transparent_56%)] before:pointer-events-none">
+                <div class="w-full px-4 max-w-5xl mx-auto max-sm:w-full max-sm:px-4 relative">
+                    <span class="inline-block text-neonCyan-400 text-xs tracking-widest font-extrabold uppercase">
+                        MODU · COLLABORATION SOLUTION
+                    </span>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-6xl tracking-tight max-w-4xl mt-8 mb-8 font-black text-slate-50">
+                        <span class="block">
+                            MODU<span class="text-red-600"> DA</span>
+                        </span>
+                        <span class="text-2xl sm:text-3xl lg:text-4xl"><span class="text-neonCyan-400">프로젝트 · 문서 · 일정 관리</span> 협업 솔루션</span>
+                    </h1>
+                    <p class="text-sm lg:text-lg max-w-3xl text-slate-400 mb-12">
+                        프로젝트, 문서, 일정 관리를 하나의 흐름으로 연결하여 팀 협업을 강화하고<br class="desktop-break"> 많은 업무 속에서도 혼선을 줄일 수 있는 업무 허브 환경을 제공합니다.
+                    </p>
+                    <div class="grid grid-cols-4 gap-3 max-md:grid-cols-2 max-sm:gap-2 break-all">
+                        <div class="px-4 py-6 border border-slate-700 bg-techdark-900/70 rounded-xl min-h-36 max-sm:min-h-0 max-sm:px-3 max-sm:py-4">
+                            <strong class="block text-slate-100 text-base mb-4 max-sm:text-sm">협업 중심</strong>
+                            <p class="text-sm text-slate-400 m-0 max-sm:text-xs">프로젝트·업무·일정·문서를 한 곳에서 연결하는 통합 협업 환경</p>
+                        </div>
+                        <div class="px-4 py-6 border border-slate-700 bg-techdark-900/70 rounded-xl min-h-36 max-sm:min-h-0 max-sm:px-3 max-sm:py-4">
+                            <strong class="block text-slate-100 text-base mb-4 max-sm:text-sm">유연한 연동</strong>
+                            <p class="text-sm text-slate-400 m-0 max-sm:text-xs">기존 업무 시스템 및 외부 서비스와 연계 가능한 업무 허브 구조</p>
+                        </div>
+                        <div class="px-4 py-6 border border-slate-700 bg-techdark-900/70 rounded-xl min-h-36 max-sm:min-h-0 max-sm:px-3 max-sm:py-4">
+                            <strong class="block text-slate-100 text-base mb-4 max-sm:text-sm">지식 자산화</strong>
+                            <p class="text-sm text-slate-400 m-0 max-sm:text-xs">문서 공유, 권한 관리, 검색 기반으로 조직 지식을 체계적으로 축적</p>
+                        </div>
+                        <div class="px-4 py-6 border border-slate-700 bg-techdark-900/70 rounded-xl min-h-36 max-sm:min-h-0 max-sm:px-3 max-sm:py-4">
+                            <strong class="block text-slate-100 text-base mb-4 max-sm:text-sm">지능형 AI 보조</strong>
+                            <p class="text-sm text-slate-400 m-0 max-sm:text-xs">업무 히스토리와 데이터를 스스로 학습하여 최적의 실행 방향을 제시</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-3 my-4">
+                        <button type="button" class="px-5 py-2.5 border border-slate-600 rounded-lg text-sm font-bold text-slate-200 inline-flex items-center gap-2 transition-all duration-200 bg-cyan-700/50 hover:bg-cyan-800 hover:text-white" onclick="openContactModal()">도입 문의</button>
+                    </div>
+                    <div class="h-px bg-slate-800 my-6"></div>
+                </div>
+            </section>
+            <section id="features" class="mt-0 py-8 max-sm:py-12 bg-techdark-900">
+                <div class="w-full px-5 max-w-5xl mx-auto max-sm:w-full max-sm:px-4">
+                    <div class="pb-6 flex items-center justify-between gap-6 max-sm:flex-col max-sm:items-start">
+                        <div class="flex-1 min-w-0">
+                            <span class="inline-block text-neonCyan-400 text-xs tracking-widest font-extrabold uppercase">
+                                01 / CORE CAPABILITIES
+                            </span>
+                            <h2 class="border-l-4 border-neonBlue-400 pl-4 text-2xl sm:text-3xl font-extrabold my-3.5 text-slate-50">
+                                핵심 기능
+                            </h2>
+                            <p class="m-0 text-slate-400 text-sm">
+                                단순한 일정 관리 도구를 넘어, 프로젝트 운영과 커뮤니케이션 전반을 연결하는 핵심 기능을 제공합니다.
+                            </p>
+                        </div>
+                        <img src="./img/core-features.png" alt="핵심 기능" class="w-56 max-sm:w-full aspect-video object-cover rounded-lg shrink-0">
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 max-md:grid-cols-2 max-sm:grid-cols-1 break-all text-justify">
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl px-6 py-4 max-sm:p-5">
+                            <div class="flex items-center gap-4 my-4">
+                                <span class="w-8 h-8 shrink-0 inline-flex items-center justify-center bg-neonCyan-400/10 border border-neonCyan-400/15 rounded-lg text-neonCyan-400">
+                                    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+                                </span>
+                                <h3 class="text-lg font-bold text-cyan-500">
+                                    프로젝트 기반 협업
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-300 mb-4 px-2">
+                                프로젝트 및 업무 과제를 중심으로 담당자, 일정, 진행 상태를 정리하고 팀 단위의 실행력을 높입니다.
+                            </p>
+                        </div>
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl px-6 py-4 max-sm:p-5">
+                            <div class="flex items-center gap-3 my-4">
+                                <span class="w-8 h-8 shrink-0 inline-flex items-center justify-center bg-neonCyan-400/10 border border-neonCyan-400/15 rounded-lg text-neonCyan-400">
+                                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                                </span>
+                                <h3 class="text-lg font-bold text-cyan-500">
+                                    지식 중심 커뮤니케이션
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-300 mb-4 px-2">
+                                문서 공유와 이력 관리를 통해 논의 내용을 축적하고, 필요한 정보를 빠르게 찾아 활용할 수 있습니다.
+                            </p>
+                        </div>
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl px-6 py-4 max-sm:p-5">
+                            <div class="flex items-center gap-3 my-4">
+                                <span class="w-8 h-8 shrink-0 inline-flex items-center justify-center bg-neonCyan-400/10 border border-neonCyan-400/15 rounded-lg text-neonCyan-400">
+                                    <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+                                </span>
+                                <h3 class="text-lg font-bold text-cyan-500">
+                                    일정 및 지표 관리
+                                </h3>
+                            </div>
+                            <p class="text-sm text-slate-300 mb-4 px-2">
+                                개인·팀 일정과 각종 업무 지표를 함께 관리하여 협업 상황과 우선순위를 명확하게 파악할 수 있습니다.
+                            </p>
+                        </div>
+
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-200 text-center mt-10 mb-4 text-slate-50">협업을 위한 기반 기능</h3>
+                    </div>
+                    <div class="grid grid-cols-4 gap-3 max-md:grid-cols-2 max-sm:gap-2 break-all text-justify">
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl p-5 max-sm:px-3 max-sm:py-3.5">
+                            <div>
+                                <h3 class="text-base mb-2 font-semibold text-slate-50 flex items-center gap-2">
+                                    <!--<i class="fa-solid fa-table-cells-large text-neonCyan-400 text-lg" aria-hidden="true"></i>-->
+                                    업무 허브
+                                </h3>
+                                <p class="text-sm text-slate-400 m-0 max-sm:text-xs">프로젝트, 일정, 문서, 알림을 하나의 공간에서 연결합니다.</p>
+                            </div>
+                        </div>
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl p-5 max-sm:px-3 max-sm:py-3.5">
+                            <div>
+                                <h3 class="text-base mb-2 font-semibold text-slate-50 flex items-center gap-2">
+                                    <!--<i class="fa-solid fa-arrows-rotate text-neonCyan-400 text-lg" aria-hidden="true"></i>-->
+                                    실시간 공유
+                                </h3>
+                                <p class="text-sm text-slate-400 m-0 max-sm:text-xs">업무 변경사항과 진행상황을 즉시 팀에 전파할 수 있습니다.</p>
+                            </div>
+                        </div>
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl p-5 max-sm:px-3 max-sm:py-3.5">
+                            <div>
+                                <h3 class="text-base mb-2 font-semibold text-slate-50 flex items-center gap-2">
+                                    <!--<i class="fa-solid fa-magnifying-glass text-neonCyan-400 text-lg" aria-hidden="true"></i>-->
+                                    스마트 검색
+                                </h3>
+                                <p class="text-sm text-slate-400 m-0 max-sm:text-xs">필요한 문서와 히스토리를 빠르게 조회하여 탐색 시간을 줄입니다.</p>
+                            </div>
+                        </div>
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl p-5 max-sm:px-3 max-sm:py-3.5">
+                            <div>
+                                <h3 class="text-base mb-2 font-semibold text-slate-50 flex items-center gap-2">
+                                    <!--<i class="fa-solid fa-shield-halved text-neonCyan-400 text-lg" aria-hidden="true"></i>-->
+                                    권한 관리
+                                </h3>
+                                <p class="text-sm text-slate-400 m-0 max-sm:text-xs">중요 문서를 안전하게 관리하면서 협업범위를 유연하게 조정합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-px bg-slate-800 mt-6"></div>
+                </div>
+            </section>
+            <section id="ai-features" class="mt-0 py-8 max-sm:py-12 bg-techdark-900">
+                <div class="w-full px-5 max-w-5xl mx-auto max-sm:w-full max-sm:px-4">
+                    <div class="pb-6 flex items-center justify-between gap-6 max-sm:flex-col max-sm:items-start">
+                        <div class="flex-1 min-w-0">
+                            <span class="inline-block text-neonCyan-400 text-xs tracking-widest font-extrabold uppercase">
+                                02 / AI INTELLIGENCE
+                            </span>
+                            <h2 class="border-l-4 border-neonBlue-400 pl-4 text-2xl sm:text-3xl font-extrabold my-3.5 text-slate-50">
+                                차세대 AI 어시스턴트
+                            </h2>
+                            <p class="m-0 text-slate-400 text-sm">
+                                MODU DA는 단순한 관리를 넘어, 인공지능이 업무의 맥락과 파급 효과를 선제적으로 감지하여 업무를 보조하는 지능형 솔루션입니다.
+                            </p>
+                        </div>
+                        <img src="./img/ai-assistant.png" alt="차세대 AI 어시스턴트" class="w-56 max-sm:w-full aspect-video object-cover rounded-lg shrink-0">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 max-sm:grid-cols-1 break-all text-justify">
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl px-6 py-6 min-h-48 max-sm:p-5">
+                            <div class="flex items-center justify-between min-h-8 gap-2.5">
+                                <span class="w-9 h-9 inline-flex items-center justify-center bg-neonCyan-400/10 border border-neonCyan-400/15 rounded-lg text-neonCyan-400">
+                                    <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+                                </span>
+                                <span class="text-xs font-bold text-sky-300 border border-slate-700 bg-slate-800 rounded-md px-2 py-1">지능형 맥락 탐색</span>
+                            </div>
+                            <h3 class="text-lg my-3 text-slate-50">맥락을 이해하는 통합 데이터 탐색</h3>
+                            <p class="text-sm text-slate-400 m-0">파편화된 기존 프로젝트 정보와 내부 매뉴얼, 축적된 의사결정 히스토리를 AI가 스스로 연결합니다. 필요한 핵심 정보를 재구성하여 필요할 때 즉시 제공합니다.</p>
+                        </div>
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl px-6 py-6 min-h-48 max-sm:p-5">
+                            <div class="flex items-center justify-between min-h-8 gap-2.5">
+                                <span class="w-9 h-9 inline-flex items-center justify-center bg-neonCyan-400/10 border border-neonCyan-400/15 rounded-lg text-neonCyan-400">
+                                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                                </span>
+                                <span class="text-xs font-bold text-sky-300 border border-slate-700 bg-slate-800 rounded-md px-2 py-1">리스크 예측 & 제안</span>
+                            </div>
+                            <h3 class="text-lg my-3 text-slate-50">선제적 리스크 예측 및 최적안 제안</h3>
+                            <p class="text-sm text-slate-400 m-0">부품·설계·생산 등 복잡한 체인 속에서 잠재된 공급 불균형이나 변경 요소를 AI가 사전에 감지합니다. 파급 효과를 실시간으로 분석하여 최적의 대안을 자동으로 도출합니다.</p>
+                        </div>
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl px-6 py-6 min-h-48 max-sm:p-5">
+                            <div class="flex items-center justify-between min-h-8 gap-2.5">
+                                <span class="w-9 h-9 inline-flex items-center justify-center bg-neonCyan-400/10 border border-neonCyan-400/15 rounded-lg text-neonCyan-400">
+                                    <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                                </span>
+                                <span class="text-xs font-bold text-sky-300 border border-slate-700 bg-slate-800 rounded-md px-2 py-1">프로세스 자동화</span>
+                            </div>
+                            <h3 class="text-lg my-3 text-slate-50">자동화된 변경 영향도 및 검증 가이드</h3>
+                            <p class="text-sm text-slate-400 m-0">프로젝트 단계별 요구사항과 변경 사항이 발생할 때마다, 관련 산출물과 차이점을 지능적으로 파악하고 변경 초안 및 가이드를 자동으로 준비합니다.</p>
+                        </div>
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl px-6 py-6 min-h-48 max-sm:p-5">
+                            <div class="flex items-center justify-between min-h-8 gap-2.5">
+                                <span class="w-9 h-9 inline-flex items-center justify-center bg-neonCyan-400/10 border border-neonCyan-400/15 rounded-lg text-neonCyan-400">
+                                    <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+                                </span>
+                                <span class="text-xs font-bold text-sky-300 border border-slate-700 bg-slate-800 rounded-md px-2 py-1">개인화 업무 비서</span>
+                            </div>
+                            <h3 class="text-lg my-3 text-slate-50">맞춤형 자율 업무 일정 및 우선순위 수립</h3>
+                            <p class="text-sm text-slate-400 m-0">사용자의 업무 일지와 이메일, 커뮤니케이션 패턴을 학습하여 오늘 가장 먼저 집중해야 할 업무 플랜과 체크리스트를 인공지능이 스스로 추천합니다.</p>
+                        </div>
+                    </div>
+                    <div class="h-px bg-slate-800 mt-6"></div>
+                </div>
+            </section>
+            <section id="workflow" class="py-8 max-sm:py-12 bg-techdark-900">
+                <div class="w-full px-5 max-w-5xl mx-auto max-sm:w-full max-sm:px-4">
+                    <div class="pb-6">
+                        <span class="inline-block text-neonCyan-400 text-xs tracking-widest font-extrabold leading-snug uppercase">03 / CONNECTED WORKFLOW</span>
+                        <h2 class="border-l-4 border-neonBlue-400 pl-4 text-2xl sm:text-3xl font-extrabold my-3.5 text-slate-50 leading-snug">업무 연계와 운영 흐름</h2>
+                        <p class="max-w-4xl m-0 text-slate-400 text-sm">MODU DA는 기존 업무 시스템과의 연계, 그리고 MODU EDA와의 연결을 통해 보다 유기적인 업무 환경을 구성합니다.</p>
+                    </div>
+                    <div class="grid grid-cols-[5fr_4fr] gap-6 items-start max-md:grid-cols-1">
+                        <div class="grid gap-5">
+                            <figure onclick="openImageLightbox(this)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openImageLightbox(this); }" role="button" tabindex="0" aria-label="이미지 1 확대 보기" class="border border-slate-800 rounded-xl bg-techdark-900 overflow-hidden m-0 cursor-zoom-in">
+                                <div class="min-h-56 grid place-items-center bg-techdark-900 pt-4">
+                                    <img src="img/moduda_img1.png" alt="MODU DA 화면 예시 1" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false" class="max-w-full w-full h-auto object-contain block">
+                                </div>
+                                <figcaption class="text-center text-sm text-slate-400 pb-2.5 px-4 border-t border-slate-800 leading-relaxed">
+                                    <i class="fa-regular fa-image mr-1.5 text-slate-300"></i>
+                                    프로젝트·문서·일정 관리 중심의 협업 환경 예시
+                                </figcaption>
+                            </figure>
+                            <figure onclick="openImageLightbox(this)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openImageLightbox(this); }" role="button" tabindex="0" aria-label="이미지 2 확대 보기" class="border border-slate-800 rounded-xl bg-techdark-900 overflow-hidden m-0 cursor-zoom-in">
+                                <div class="min-h-56 grid place-items-center bg-techdark-900 p-4">
+                                    <img src="img/moduda_img2.png" alt="MODU DA 화면 예시 2" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false" class="max-w-full w-full h-auto object-contain block">
+                                </div>
+                                <figcaption class="text-center text-sm text-slate-400 pb-2.5 px-4 border-t border-slate-800 leading-relaxed">
+                                    <i class="fa-regular fa-image mr-1.5 text-slate-300"></i>
+                                    기존 시스템 및 MODU EDA 정보와 연계되는 협업 구조 예시
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border border-slate-800 bg-techdark-900/80 rounded-xl px-6 py-6 mb-8 max-sm:p-5">
+                                <div class="flex items-center justify-between min-h-8 gap-2.5">
+                                    <span class="w-9 h-9 inline-flex items-center justify-center bg-neonCyan-400/10 border border-neonCyan-400/15 rounded-lg text-neonCyan-400">
+                                        <i class="fa-solid fa-link"></i>
+                                    </span>
+                                    <span class="text-xs font-bold text-sky-300 border border-slate-700 bg-slate-800 rounded-md px-2 py-1">연계 시나리오</span>
+                                </div>
+                                <h3 class="text-lg font-semibold my-3 text-slate-50 leading-relaxed">
+                                    연동 기반 협업 구조
+                                </h3>
+                                <p class="text-sm text-slate-400 leading-relaxed break-all text-justify">
+                                    기존 업무 시스템과, 그리고 MODU EDA의 문서·도면·BOM 정보와 연계하여 UNIT 기반 Workflow 안에서 보다 정확하고 상세한 커뮤니케이션 및 협업이 가능하도록 지원합니다.
+                                </p>
+                            </div>
+
+                            <div class="border border-slate-800 bg-techdark-900/80 rounded-xl px-6 py-6 max-sm:p-5">
+
+                                <!-- Header -->
+                                <div class="flex items-center justify-between min-h-8 gap-2.5">
+                                    <span class="w-9 h-9 inline-flex items-center justify-center bg-neonCyan-400/10 border border-neonCyan-400/15 rounded-lg text-neonCyan-400">
+                                        <i class="fa-solid fa-list-ol"></i>
+                                    </span>
+                                    <span class="text-xs font-bold text-sky-300 border border-slate-700 bg-slate-800 rounded-md px-2 py-1">
+                                        운영 흐름
+                                    </span>
+                                </div>
+
+                                <h3 class="text-lg font-semibold my-3 mb-6 text-slate-50 leading-snug">
+                                    업무 실행 프로세스
+                                </h3>
+
+                                <!-- Timeline -->
+                                <ol class="relative border-l-2 border-slate-700 ml-3 pl-6 space-y-6 list-none">
+
+                                    <!-- STEP 1 -->
+                                    <li class="relative">
+                                        <span class="absolute -left-[37px] top-0 w-6 h-6 rounded-full
+                                                     bg-cyan-950 border border-neonCyan-400
+                                                     flex items-center justify-center
+                                                     text-xs font-bold text-neonCyan-400">
+                                            1
+                                        </span>
+                                        <h4 class="text-xs font-bold text-neonCyan-400 mb-4">
+                                            STEP 1
+                                        </h4>
+                                        <p class="text-sm text-slate-300 m-0 leading-6">
+                                            프로젝트와 과제를 등록하고 담당자, 일정, 목표를 명확히 정의합니다.
+                                        </p>
+                                    </li>
+
+                                    <!-- STEP 2 -->
+                                    <li class="relative">
+                                        <span class="absolute -left-[37px] top-0 w-6 h-6 rounded-full
+                                                     bg-cyan-950 border border-neonCyan-400
+                                                     flex items-center justify-center
+                                                     text-xs font-bold text-neonCyan-400">
+                                            2
+                                        </span>
+                                        <h4 class="text-xs font-bold text-neonCyan-400 mb-4">
+                                            STEP 2
+                                        </h4>
+                                        <p class="text-sm text-slate-300 m-0 leading-6">
+                                            문서와 업무 이력을 연결하여 협업 중에 생성되는 정보를 중앙에 축적합니다.
+                                        </p>
+                                    </li>
+
+                                    <!-- STEP 3 -->
+                                    <li class="relative">
+                                        <span class="absolute -left-[37px] top-0 w-6 h-6 rounded-full
+                                                     bg-cyan-950 border border-neonCyan-400
+                                                     flex items-center justify-center
+                                                     text-xs font-bold text-neonCyan-400">
+                                            3
+                                        </span>
+                                        <h4 class="text-xs font-bold text-neonCyan-400 mb-4">
+                                            STEP 3
+                                        </h4>
+                                        <p class="text-sm text-slate-300 m-0 leading-6">
+                                            기존 시스템 및 외부 서비스 연계를 통해 업무 허브로 활용 범위를 확장합니다.
+                                        </p>
+                                    </li>
+
+                                    <!-- STEP 4 -->
+                                    <li class="relative">
+                                        <span class="absolute -left-[37px] top-0 w-6 h-6 rounded-full
+                                                     bg-cyan-950 border border-neonCyan-400
+                                                     flex items-center justify-center
+                                                     text-xs font-bold text-neonCyan-400">
+                                            4
+                                        </span>
+                                        <h4 class="text-xs font-bold text-neonCyan-400 mb-4">
+                                            STEP 4
+                                        </h4>
+                                        <p class="text-sm text-slate-300 m-0 leading-6">
+                                            검색, 권한 관리, 알림 기능을 통해 효과적으로 공유하고 실행 속도를 높입니다.
+                                        </p>
+                                    </li>
+
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="h-px bg-slate-800 mt-6"></div>
+                </div>
+            </section>
+            <section id="benefits" class="py-8 max-sm:py-12">
+                <div class="w-full px-5 max-w-5xl mx-auto max-sm:w-full max-sm:px-4">
+                    <div class="pb-6">
+                        <span class="inline-block text-neonCyan-400 text-xs tracking-widest font-extrabold leading-snug uppercase">04 / BUSINESS BENEFITS</span>
+                        <h2 class="border-l-4 border-neonBlue-400 pl-4 text-2xl sm:text-3xl font-extrabold my-3.5 text-slate-50 leading-snug">기대 효과</h2>
+                        <p class="max-w-4xl m-0 text-slate-400 text-sm">팀원들이 동일한 정보를 보면서, 같은 흐름으로 일하도록 하여 협업 품질과 업무 생산성을 높입니다.</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl px-6 py-6 min-h-48 max-sm:p-5">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-8 h-8 shrink-0 inline-flex items-center justify-center bg-neonCyan-400/10 border border-neonCyan-400/15 rounded-lg text-neonCyan-400">
+                                    <i class="fa-solid fa-gauge-high"></i>
+                                </span>
+                                <h3 class="text-lg font-bold text-cyan-500">
+                                    업무 효율 향상
+                                </h3>
+                            </div>
+                            <ul class="pl-6 mb-0 text-sm text-slate-300 list-disc marker:text-neonCyan-400">
+                                <li class="mb-2">업무 현황과 일정을 파악하는 시간을 단축합니다.</li>
+                                <li class="mb-2">문서 및 히스토리 검색 시간을 줄여 의사결정을 빠르게 지원합니다.</li>
+                                <li class="mb-2">프로젝트 단위의 실행 관리로 우선순위 정렬이 쉬워집니다.</li>
+                            </ul>
+                        </div>
+                        <div class="border border-slate-700 bg-techdark-900/80 rounded-xl px-6 py-6 min-h-48 max-sm:p-5">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-8 h-8 shrink-0 inline-flex items-center justify-center bg-neonCyan-400/10 border border-neonCyan-400/15 rounded-lg text-neonCyan-400">
+                                    <i class="fa-solid fa-people-group"></i>
+                                </span>
+                                <h3 class="text-lg font-bold text-cyan-500">
+                                    협업 품질 강화
+                                </h3>
+                            </div>
+                            <ul class="pl-6 mb-0 text-sm text-slate-300 list-disc marker:text-neonCyan-400">
+                                <li class="mb-2">권한 관리와 문서 공유를 통해 조직 내 지식 자산화를 촉진합니다.</li>
+                                <li class="mb-2">업무 흐름과 커뮤니케이션을 연결하여 전달 누락을 줄입니다.</li>
+                                <li class="mb-2">기존 시스템과의 연동으로 도입 장벽을 낮추고 활용 범위를 넓힙니다.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="mx-0 md:mx-12 lg:mx-24 my-12 px-8 md:px-10 lg:px-12 py-4 bg-techdark-900 border border-slate-800 border-l-4 border-l-neonCyan-400">
+                        <p class="text-lg lg:text-xl text-white font-bold leading-loose">MODU DA는 프로젝트·문서·일정 관리를 자연스럽게 연결하여, 협업과 실행을 하나의 업무 흐름으로 통합하는 협업 솔루션입니다.</p>
+                    </div>
+                    <div class="h-px bg-slate-800 mt-6"></div>
+                </div>
+            </section>
+        </main>
+        <footer class="pt-8 pb-10 bg-techdark-900" id="contact">
+            <div class="w-full px-5 max-w-5xl mx-auto max-sm:w-full max-sm:px-4">
+                <div class="border-b border-slate-800 pb-10 mb-6">
+                    <span class="inline-block text-neonCyan-400 text-xs tracking-widest font-extrabold uppercase">LET'S WORK TOGETHER</span>
+                    <h2 class="text-2xl sm:text-3xl text-slate-50 mb-2">
+                        Start Collaboration with <span class="font-extrabold">MODU</span><span class="font-extrabold text-red-600"> DA</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-400 max-w-3xl mb-2">프로젝트, 문서, 일정 관리를 하나의 흐름으로 연결하는 협업 환경.<br>팀의 실행력과 정보 연결성을 동시에 높이는 MODU DA를 경험해 보세요.</p>
+                    <div class="mt-8 border border-slate-700 px-6 py-5 rounded-lg bg-techdark-900 flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div class="flex-1">
+                            <h3 class="text-sm font-semibold text-neonCyan-400 leading-snug mb-2">
+                                도입 및 파트너십 문의
+                            </h3>
+                            <p class="m-0 text-sm leading-6">
+                                기존 시스템 연계, 협업 프로세스 고도화, 문서 중심 업무 운영 체계 개선이 필요하다면 MODU와 함께 실현할 수 있습니다.
+                            </p>
+                        </div>
+                        <button type="button" onclick="openContactModal()" class="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-700 hover:bg-cyan-600 text-white text-sm font-semibold transition-colors duration-200">
+                            문의하기
+                            <!--<i class="fa-solid fa-arrow-right"></i>-->
+                        </button>
+
+                    </div>
+                </div>
+                <div class="text-xs text-slate-400">
+                    <strong class="text-white">주식회사 모두 MODU Co., Ltd.</strong>
+                    <p>웹사이트: <a href="https://modusol.co.kr/" target="_blank" rel="noopener noreferrer" class="text-neonCyan-400 no-underline">https://modusol.co.kr/</a></p>
+                    <p>Communicate with people and connect with technology</p>
+                    <p>© MODU Co., Ltd. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- CONTACT MODAL: Web3Forms + hCaptcha -->
+        <div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/75 p-3 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" aria-hidden="true" onclick="if(event.target === this) closeContactModal()">
+            <div class="w-full max-w-xl max-h-[94vh] overflow-y-auto rounded-xl border border-slate-600 bg-techdark-900 p-5 sm:p-7 shadow-2xl">
+                <div class="flex items-start justify-between gap-3 mb-5">
+                    <div>
+                        <h2 id="contact-modal-title" class="text-xl font-bold text-white">문의하기</h2>
+                        <p class="text-sm text-slate-400 mt-1">문의 사항을 남겨주시면 담당자가 확인 후 연락드리겠습니다.</p>
+                    </div>
+                    <button type="button" onclick="closeContactModal()" aria-label="문의창 닫기" class="rounded p-2 text-slate-400 hover:text-white hover:bg-slate-700"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-3">
+                    <!-- Replace this placeholder after receiving your key from Web3Forms. -->
+                    <input type="hidden" name="access_key" value="ff8ded0c-5600-49fc-83c5-d80934755aee">
+                    <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="hidden" style="display:none" aria-hidden="true">
+                    <div>
+                        <label for="contact-subject" class="block text-sm text-slate-200 mb-1">제목 <span class="text-cyan-400">*</span></label>
+                        <input id="contact-subject" name="subject" type="text" maxlength="150" required placeholder="문의 제목" class="w-full rounded-md border border-slate-600 bg-techdark-800 px-3 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500">
+                    </div>
+                    <div>
+                        <label for="contact-message" class="block text-sm text-slate-200 mb-1">본문 <span class="text-cyan-400">*</span></label>
+                        <textarea id="contact-message" name="message" rows="4" maxlength="5000" required placeholder="문의 내용을 입력해 주세요." class="w-full rounded-md border border-slate-600 bg-techdark-800 px-3 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 resize-y"></textarea>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-[2fr_3fr] gap-3">
+                        <div>
+                            <label for="contact-name" class="block text-sm text-slate-200 mb-1">이름 <span class="text-cyan-400">*</span></label>
+                            <input id="contact-name" name="name" type="text" maxlength="80" required autocomplete="name" class="w-full rounded-md border border-slate-600 bg-techdark-800 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-cyan-500">
+                        </div>
+                        <div>
+                            <label for="contact-email" class="block text-sm text-slate-200 mb-1">이메일 <span class="text-cyan-400">*</span></label>
+                            <input id="contact-email" name="email" type="email" maxlength="254" required autocomplete="email" placeholder="name@example.com" class="w-full rounded-md border border-slate-600 bg-techdark-800 px-3 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="contact-phone" class="block text-sm text-slate-200 mb-1">전화번호 <span class="text-slate-300">(선택)</span></label>
+                        <input id="contact-phone" name="phone" type="tel" maxlength="30" autocomplete="tel" placeholder="010-0000-0000" class="w-full rounded-md border border-slate-600 bg-techdark-800 px-3 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500">
+                    </div>
+                    <label class="flex gap-2 items-start text-xs text-slate-300 leading-relaxed">
+                        <input type="checkbox" id="contact-consent" required class="mt-0.5 accent-cyan-600">
+                        <span>
+                            [필수] 문의 처리 및 답변을 위해 이름, 이메일, 전화번호(선택)를 수집·이용하는 것에 동의합니다.
+                        </span>
+                        <!--
+                        <span>
+                            [필수] 문의 처리 및 답변을 위해 이름, 이메일, 선택적으로 전화번호를 수집·이용하는 것에 동의합니다. 실제 보유기간 및 국외 처리 관련 사항은 게시된 개인정보처리방침을 확인해 주세요.
+                        </span>
+                        -->
+                    </label>
+                    <br>
+                    <div class="flex justify-center my-4">
+                        <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
+                    </div>
+                    <p id="contact-status" class="text-sm text-slate-300" role="status" aria-live="polite"></p>
+                    <button type="submit" id="contact-submit" class="w-full rounded-lg bg-cyan-700 px-4 py-3 text-sm font-bold text-white hover:bg-cyan-600 disabled:opacity-50 disabled:cursor-not-allowed transition">문의 보내기</button>
+                </form>
+            </div>
+        </div>
+    
+        <script>
+        // Contact modal: no changes to the site's existing tab navigation.
+        const contactModal = document.getElementById('contact-modal');
+        const contactForm = document.getElementById('contact-form');
+        const contactStatus = document.getElementById('contact-status');
+        const contactSubmit = document.getElementById('contact-submit');
+        let contactPreviousFocus = null;
+        function openContactModal(prefillSubject = '') {
+            contactPreviousFocus = document.activeElement;
+            if (prefillSubject) document.getElementById('contact-subject').value = prefillSubject;
+            contactStatus.textContent = '';
+            contactModal.classList.remove('hidden');
+            contactModal.classList.add('flex');
+            contactModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('contact-subject').focus();
+        }
+        function closeContactModal() {
+            contactModal.classList.add('hidden');
+            contactModal.classList.remove('flex');
+            contactModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (contactPreviousFocus && typeof contactPreviousFocus.focus === 'function') contactPreviousFocus.focus();
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !contactModal.classList.contains('hidden')) closeContactModal();
+            if (e.key === 'Tab' && !contactModal.classList.contains('hidden')) {
+                const nodes = [...contactModal.querySelectorAll('button, input:not([type="hidden"]):not(.hidden), textarea, a[href], [tabindex]:not([tabindex="-1"])')].filter(el => !el.disabled && el.getClientRects().length);
+                if (!nodes.length) return;
+                const first = nodes[0], last = nodes[nodes.length-1];
+                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
+        });
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const key = contactForm.querySelector('[name="access_key"]').value;
+            if (key === 'YOUR_WEB3FORMS_ACCESS_KEY' || !key.trim()) {
+                contactStatus.textContent = 'Web3Forms Access Key를 먼저 설정해 주세요.';
+                return;
+            }
+            const token = contactForm.querySelector('[name="h-captcha-response"]')?.value;
+            if (!token) {
+                contactStatus.textContent = '스팸 방지 인증(hCaptcha)을 완료해 주세요.';
+                return;
+            }
+            contactSubmit.disabled = true;
+            contactSubmit.textContent = '전송 중...';
+            contactStatus.textContent = '';
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { 'Accept': 'application/json' }
+                });
+                const result = await response.json();
+                if (!response.ok || !result.success) throw new Error(result.message || '전송 오류');
+                contactForm.reset();
+                if (window.hcaptcha && typeof window.hcaptcha.reset === 'function') window.hcaptcha.reset();
+                contactStatus.textContent = '문의가 정상적으로 접수되었습니다. 감사합니다.';
+                contactStatus.className = 'text-sm text-emerald-400';
+            } catch (error) {
+                contactStatus.textContent = '전송에 실패했습니다. 잠시 후 다시 시도해 주세요. (' + error.message + ')';
+                contactStatus.className = 'text-sm text-rose-400';
+            } finally {
+                contactSubmit.disabled = false;
+                contactSubmit.textContent = '문의 보내기';
+            }
+        });
+    </script>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+    
+        <!-- LIGHTBOX: only for the two figures with captions in Connected Workflow -->
+        <div id="image-lightbox" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/90 p-4 sm:p-6" role="dialog" aria-modal="true" aria-label="이미지 확대 보기" aria-hidden="true" onclick="if (event.target === this) closeImageLightbox()">
+            <button type="button" id="image-lightbox-close" onclick="closeImageLightbox()" aria-label="이미지 확대 닫기" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 text-white text-4xl leading-none hover:text-cyan-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md px-2">&times;</button>
+            <img id="image-lightbox-content" alt="" class="max-w-full max-h-[90vh] w-auto h-auto object-contain shadow-2xl" onclick="event.stopPropagation()">
+        </div>
+        <script>
+            // Image lightbox: independent of the existing contact modal.
+            const imageLightbox = document.getElementById('image-lightbox');
+            const imageLightboxContent = document.getElementById('image-lightbox-content');
+            const imageLightboxClose = document.getElementById('image-lightbox-close');
+            let imageLightboxTrigger = null;
+            let imageLightboxPreviousOverflow = '';
+
+            function openImageLightbox(figure) {
+                const image = figure.querySelector('img');
+                if (!image || image.hidden) return;
+                imageLightboxTrigger = figure;
+                imageLightboxPreviousOverflow = document.body.style.overflow;
+                imageLightboxContent.src = image.getAttribute('src');
+                imageLightboxContent.alt = image.alt;
+                imageLightbox.classList.remove('hidden');
+                imageLightbox.classList.add('flex');
+                imageLightbox.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                imageLightboxClose.focus();
+            }
+
+            function closeImageLightbox() {
+                if (imageLightbox.classList.contains('hidden')) return;
+                imageLightbox.classList.remove('flex');
+                imageLightbox.classList.add('hidden');
+                imageLightbox.setAttribute('aria-hidden', 'true');
+                imageLightboxContent.removeAttribute('src');
+                document.body.style.overflow = imageLightboxPreviousOverflow;
+                if (imageLightboxTrigger) imageLightboxTrigger.focus();
+            }
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && !imageLightbox.classList.contains('hidden')) {
+                    closeImageLightbox();
+                }
+            });
+        </script>
+    </body>
+</html>

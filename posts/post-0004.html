@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모두의 CAD - TECH ARTICLE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../img/MODU_logo.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        techdark: { 950: '#0b0f19', 900: '#0f172a', 800: '#1e293b' },
+                        neonBlue: { 400: '#3b82f6', 500: '#1d4ed8' },
+                        neonCyan: { 400: '#22d3ee' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-techdark-950 text-slate-100 font-sans min-h-screen flex flex-col">
+    <header class="bg-techdark-900/90 border-b border-slate-800 py-4 px-6 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="#" onclick="history.back(); return false;" class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-slate-300 cursor-pointer">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                이전 페이지로
+            </a>
+            <span class="text-xs text-neonCyan-400 font-mono">MODUCAD TECH ARTICLE</span>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-12 w-full">
+        <div class="border-b border-slate-800 pb-8 mb-8">
+            <span class="py-1 rounded-full text-xs font-bold bg-neonBlue-500/10 text-neonBlue-400 border border-neonBlue-500/30 uppercase">
+                기초지식
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-4 leading-snug">
+                PCB Layout
+            </h1>
+            <div class="flex items-center text-xs text-slate-400 space-x-4">
+                <span><i class="fa-regular fa-calendar mr-1"></i> 2026.09.15</span>
+                <span><i class="fa-regular fa-user mr-1"></i>홍중배</span>
+            </div>
+        </div>
+
+        <article class="prose prose-invert max-w-none text-slate-300 space-y-6 text-base leading-relaxed">
+
+          <!-- Section 1 -->
+          <section>
+              <div class="mb-6">
+                  <p class="text-lg sm:text-xl font-semibold text-white leading-relaxed">
+                      회로도를 실제의 제품으로 만들어 내기 위한 전자설계의 핵심단계
+                  </p>
+              </div>
+
+              <div class="rounded-2xl overflow-hidden mb-10 border border-slate-800">
+                  <img src="../posts/img-post-0004/complex_pcb.png" alt="PCB Layout을 상징하는 이미지"
+                       class="w-full max-h-[400px] object-cover">
+              </div>
+
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-12 mb-5 border-l-4 border-neonBlue-400 pl-4">
+                  1. PCB Layout은 예술이 아닙니다, 공학입니다
+              </h2>
+
+              <p class="mb-4">
+                  앞서 우리는 회로도가 전자제품의 “설계 의도”를 표현한 것이라고 배웠습니다. 회로도에는 전자제품에 어떤 부품을 사용하고, 어떤 신호가 어디로 연결되는지가 표현되어 있습니다.
+              </p>
+              <p class="mb-4">
+                  하지만 회로도만으로는 실제 PCB를 제작할 수 없습니다.
+                  왜냐하면 회로도는 부품들의 연결 관계를 논리적으로 표현한 것이고, PCB는 그것을 물리적인 공간 안에 구현한 결과물이기 때문입니다.
+              </p>
+              <p>
+                  예를 들어 회로도에서는 CPU 부품과 메모리 부품이 어떻게 연결된다고 간단히 표현할 수 있습니다.
+                  하지만 실제 PCB에서는 다음과 같은 고민이 필요합니다.
+              </p>
+
+              <ul class="space-y-1 list-disc pl-12 my-4 marker:text-neonCyan-400">
+                  <li>CPU와 메모리 부품을 얼마나 가까이 배치할 것인가?</li>
+                  <li>신호선은 어떤 경로로 지나가야 하는가?</li>
+                  <li>CPU와 메모리에 전원을 어떤 경로를 통해 안정적으로 공급할 것인가?</li>
+                  <li>고속 신호가 서로 간섭을 일으키지 않는가?</li>
+                  <li>제품의 제조성, 조립성을 만족하는가?</li>
+              </ul>
+
+              <p class="mb-4">위와 같은 작업을 하는 것이 바로 PCB Layout입니다.</p>
+              <p>
+                  PCB Layout은 PCB Artwork이라고도 합니다. 그래서 “선을 예쁘게 그리는 작업” 정도로 생각할 수도 있지만,
+                  좋은 PCB Layout은 단순히 보기 좋은 그림을 만드는 작업이 아닙니다.
+                  PCB Layout은 전기적 특성, 열, 제조성, 신뢰성을 고려하는 공학 설계 과정입니다.
+              </p>
+
+              <div class="my-8 p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-700">
+                  <p class="text-lg sm:text-xl font-semibold text-white mb-4">
+                      좋은 PCB는 마치 <span class="text-neonCyan-400">잘 설계된 도시</span>와 같습니다.
+                  </p>
+                  <p class="mb-0">
+                      도로가 무질서하게 연결되어 있으면 교통 체증이 발생하듯이, PCB에서도 신호가 지나가는 길이 잘못 설계되면 신호 품질 문제가 발생합니다.
+                  </p>
+                  <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 mt-8 mb-4">
+                      <img src="../posts/img-post-0004/city-vs-pcb-layout.png" alt="도시 도로망과 PCB Layout의 비교"
+                           class="w-full mx-auto h-auto object-contain">
+                  </div>
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold text-white mt-10 mb-4">Placement – 부품 배치는 PCB 설계의 시작</h3>
+              <p class="mb-4">
+                  PCB Layout에서 가장 먼저 하는 작업은 Placement(부품 배치)입니다. 각각의 부품을 PCB의 어느 위치에 놓을 것인지 결정하는 과정입니다.
+              </p>
+              <p class="mb-4">
+                  Routing(배선)이 PCB Layout의 핵심이라고 얘기하는 사람도 있지만, 실제로는 Placement가 더 중요할 때가 많습니다.
+                  <br>
+                  부품의 배치가 잘못되어 있으면 아무리 배선을 잘 해도 좋은 PCB가 될 수 없고, 심지어 배선을 할 수 없기도 합니다.
+              </p>
+              <p>
+                  도시를 설계할 때에 차량의 흐름을 생각하지 않고 주거지역, 상업지역, 산업단지, 복합구역, 공원, 쇼핑몰 등의 위치를 뒤죽박죽 섞어서 배치하면
+                  도로를 아무리 잘 지어도 교통체증이 생길 수밖에 없는 것과 같습니다.
+              </p>
+
+              <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                  <img src="../posts/img-post-0004/placement_important.png" alt="PCB Placement의 중요성을 설명하는 이미지"
+                       class="w-full mx-auto h-auto object-contain">
+              </div>
+
+              <p class="mb-4">
+                  예를 들어 고속 메모리와 CPU가 사용된다고 가정한다면, 회로도에서는 두 부품이 연결되어 있다고 표현할 뿐이고
+                  PCB에서는 두 부품 사이의 실제 거리가 직접적으로 표현됩니다.
+              </p>
+              <p>
+                  거리가 멀어지면 신호선의 길이가 증가하고 노이즈의 영향을 많이 받아 고속 신호 품질이 떨어질 수 있습니다.
+                  따라서 중요하거나 민감한 부품은 서로 가깝게 배치하고 신호의 흐름을 고려해야 합니다.
+              </p>
+
+              <div class="grid gap-4 my-8 mx-16">
+                  <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800">
+                      <h3 class="text-lg font-bold text-white mb-2">1) 기능별 그룹화</h3>
+                      <p class="mb-0">
+                          비슷한 기능을 하는 부품끼리 모읍니다. 예를 들어 CPU 주변에는 메모리, 클럭 관련 부품을 배치하고,
+                          전원 IC 부근에는 전원안정을 위한 캐패시터와 필터 등을 배치합니다.
+                      </p>
+                      <br>
+                      <h3 class="text-lg font-bold text-white mb-2">2) 신호의 흐름 고려</h3>
+                      <p class="mb-0">
+                          신호가 이동하는 방향을 고려합니다.
+                          <br>
+                          입력 → 처리 → 출력의 흐름이 자연스럽게 연결되도록 배치합니다.
+                      </p>
+                      <br>
+                      <h3 class="text-lg font-bold text-white mb-2">3) 전원부와 신호부 분리</h3>
+                      <p class="mb-0">
+                          전원 회로는 큰 전류가 흐르기 때문에 주변 신호에 영향을 줄 수 있습니다.
+                          <br>
+                          따라서 민감한 신호 회로는 전원부에서 적절히 분리합니다.
+                      </p>
+                  </div>
+              </div>
+
+              <div class="rounded-2xl max-w-[600px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                  <img src="../posts/img-post-0004/placement-grouping.png" alt="기능별 부품 배치와 신호 흐름을 설명하는 이미지"
+                       class="w-full mx-auto h-auto object-contain">
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold text-white mt-10 mb-4">Routing – PCB 위에 신호가 흐르는 길 만들기</h3>
+              <p class="mb-4">
+                  PCB에서 부품의 위치를 결정한 후에는 부품 사이를 전기적으로 연결해야 합니다.
+                  Routing은 PCB 위에서 <strong class="text-white">전기가 이동하는 도로를 만드는 작업</strong>을 의미합니다.
+                  보통 Trace(Pattern)를 그린다고 표현하기도 합니다.
+              </p>
+              <p class="mb-4">
+                  도시에 비유하면 부품은 건물, PCB Pattern은 도로, 전기 신호는 자동차에 해당합니다.
+              </p>
+              <p class="mb-4">
+                  하지만 PCB의 도로는 도로보다 까다로운 면이 있습니다. 자동차 도로는 조금 돌아서 가더라도 목적지에 도착하면 되지만,
+                  전기신호는 지나가는 길 자체가 전기적 특성을 결정하므로 길이 잘못되면 제품이 작동하지 않을 수 있습니다.
+                  <br>
+                  마치 도로가 끊겨 있거나 장애물에 막힌 것과 같습니다.
+              </p>
+              <p>특히 고속 신호에서는 패턴의 길이와 폭, 주변의 구조, 다른 신호와의 거리가 모두 중요합니다.</p>
+
+              <div class="rounded-2xl max-w-[640px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                  <img src="../posts/img-post-0004/bad_road-vs-routing.png" alt="PCB Routing과 도로의 비유"
+                       class="w-full mx-auto h-auto object-contain">
+              </div>
+
+              <h3 class="text-xl sm:text-2xl font-bold text-white mt-10 mb-4">Layer – PCB는 여러 층으로 이루어진 건물</h3>
+              <p>
+                  언뜻 보기에 PCB는 초록색 판 정도로 보일 수 있지만 사실 PCB 내부는 여러 개의 층으로 구성되어 있습니다. 이를 Layer 구조라고 합니다.
+              </p>
+              <p>일반적인 4층짜리는 다음과 같은 층으로 구성됩니다.</p>
+              <ul class="space-y-1 list-disc pl-12 my-4 marker:text-neonCyan-400">
+                  <li>Top Layer : 부품 장착 및 신호 배선</li>
+                  <li>Inner Signal Layer(s) : 내부 신호층(들)</li>
+                  <li>Plane Layer(s) : 전원 및 Ground층(들)</li>
+                  <li>Bottom Layer : 반대쪽 부품 장착 및 배선층</li>
+              </ul>
+
+              <div class="my-8 mx-8 p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-700">
+                  <p class="text-lg font-semibold text-white mb-3">(참고) Signal Layer와 Plane Layer</p>
+                  <p class="mb-4">
+                      Signal Layer는 신호 패턴으로만 이루어진 층입니다. 이 Layer에서는 클럭과 데이터 신호, 제어용 신호등이 지나갑니다.
+                  </p>
+                  <p class="mb-0">
+                      Plane Layer는 넓은 전원과 접지를 넓게 공급하는 층입니다. 즉 Ground Plane, Power Plane을 표현합니다.
+                      Plane은 단순한 전원 연결 이상의 역할을 합니다. 특히 Ground Plane은 Return Path 제공, Noise 감소, EMI 감소 등 매우 중요한 역할을 합니다.
+                  </p>
+                  <div class="rounded-2xl max-w-[640px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 mt-8">
+                      <img src="../posts/img-post-0004/layer.png" alt="PCB Layer 구조를 설명하는 이미지"
+                           class="w-full mx-auto h-auto object-contain">
+                  </div>
+              </div>
+
+              <p>
+                  PCB의 내부 구조는 아파트에 비유할 수 있습니다. 단층 집에서는 공간이 부족하지만, 여러 층을 사용하면 더 많은 공간을 활용할 수 있습니다.
+              </p>
+              <p>
+                  마찬가지로 PCB도 Layer를 늘리면 더 많은 신호를 연결할 수 있고, 전원 품질을 개선할 수 있으며,
+                  고속 신호가 간섭 없이 흐를 수 있도록 합니다.
+              </p>
+
+              <h3 class="text-xl sm:text-2xl font-bold text-white mt-10 mb-4">Return Path – 신호는 반드시 돌아옵니다</h3>
+              <div class="flex flex-col md:flex-row gap-8 items-top my-8">
+                  <div class="md:w-2/5 rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                      <img src="../posts/img-post-0004/return_path.png"
+                           alt="PCB Return Path를 설명하는 이미지"
+                           class="w-full h-auto object-contain">
+                  </div>
+                  <div class="md:w-3/5">
+                      <p class="mb-4">
+                          PCB Layout에서 놓치기 쉬운 개념 중 하나는 Return Path(복귀 경로)입니다.
+                          전류는 단순히 출발점에서 목적지로 이동하는 것이 아닙니다. 반드시 돌아오는 길이 필요합니다.
+                      </p>
+                      <p class="mb-4">
+                          전기 신호는 출발→전달→복귀라는 순환 구조를 가지고 있습니다.
+                      </p>
+                      <p class="mb-4">
+                          예를 들어 메모리 IC가 3.3V의 전원을 공급받아 신호를 처리한다면,
+                          “3.3V 전원과 신호가 메모리 IC로 흘러가는 신호선”만 생각해서는 안 됩니다.
+                          공급받은 전원과 신호에 대한 전류들이 되돌아가는 경로도 함께 고려해야 합니다.
+                      </p>
+                      <p>
+                          좋은 PCB에서는 신호선 아래의 Layer에 안정적인 Ground Plane을 배치하여
+                          짧고 안정적인 Return Path를 제공합니다.
+                      </p>
+                  </div>
+
+              </div>     
+          </section>
+
+          <!-- Section 2 -->
+          <section>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">
+                  2. PCB Layer Stackup
+              </h2>
+              <p class="mb-4">PCB Layer Stackup은 PCB 내부의 Layer를 어떻게 구성할 것인지 결정하는 것을 의미합니다.</p>
+              <p class="mb-4">
+                  같은 부품과 같은 회로도를 사용하더라도 Stackup 정의가 다르면 PCB 성능은 크게 달라질 수 있습니다.
+                  특히 최근 전자제품은 고속 프로세서, DDR 메모리, USB, Ethernet 등 고속 신호를 많이 사용하기 때문에 Layer Stackup 정의가 매우 중요합니다.
+              </p>
+
+              <h3 class="text-xl sm:text-2xl font-bold text-white mt-8 mb-0">Layer의 구조</h3>
+              
+              <div class="flex flex-col md:flex-row gap-8 items-center my-0">
+
+                  <div class="md:w-7/10">
+                      <p>대표적인 4 Layer PCB 구조는 다음과 같습니다.</p>
+                      <ul class="space-y-1 list-disc pl-12 my-4 marker:text-neonCyan-400">
+                          <li>Top Layer</li>
+                          <li>Ground Plane</li>
+                          <li>Power Plane</li>
+                          <li>Bottom Layer</li>
+                      </ul>
+                      <p class="mb-4">이 구조는 신호층과 전원층을 적절히 분리하여 회로가 안정적으로 동작할 수 있도록 합니다.</p>
+                      <p>
+                          Layer가 한두 개인 PCB에서는 모든 신호와 전원이 같은 공간에서 혼재해야 하지만, 4 Layer 이상에서는 역할을 나눌 수 있습니다.
+                      </p>
+                  </div>
+                  <div class="md:w-3/10 rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                      <img src="../posts/img-post-0004/layer_stackup.png" alt="PCB Layer Stackup 구조"
+                           class="w-full max-w-[640px] mx-auto h-auto object-contain">
+                  </div>
+
+              </div>
+              <!--
+              <div class="my-8 p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-700">
+                  <p class="text-lg font-semibold text-white mb-0">
+                      도로에 비유한다면 Layer의 개수를 차선의 개수에 해당합니다
+                  </p>
+              </div>
+              -->
+              
+          </section>
+
+          <!-- Section 3 -->
+          <section>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">
+                  3. 고속신호 PCB에서 반드시 알아야 할 것
+              </h2>
+              <p>
+                  전자제품의 속도가 빨라질수록 PCB는 단순히 부품을 연결하는 판이 아니라 하나의 고주파 회로가 됩니다.
+                  예전에는 “연결만 되면 된다”라고 생각했지만, 요즘 제품에서는 “어떻게 연결하느냐”가 매우 중요합니다.
+              </p>
+
+              <div class="flex flex-col md:flex-row gap-8 items-start mt-10 my-4">
+                  <div class="md:w-3/5">
+                      <h3 class="text-xl sm:text-2xl font-bold text-white mt-0 mb-4">Differential Pair</h3>
+                      <p class="mb-4">
+                          Differential Pair(차동 신호)는 두 개의 신호선을 한 쌍으로 사용하는 방식입니다.
+                          대표적인 예로 USB, HDMI, Ethernet, PCI Express, SATA 등이 있습니다.
+                      </p>
+                      <p class="mb-4">
+                          일반적인 신호는 Signal + Ground 구조를 사용하지만, Differential Pair는 Positive Signal, Negative Signal 두 신호의 전압 차이를 이용합니다.
+                      </p>
+                      <p class="mb-0">외부 노이즈가 두 신호에 비슷하게 영향을 주기 때문에 두 신호의 전압을 차감하면 노이즈를 상쇄하게 됩니다.</p>
+                  </div>
+                  <div class="md:w-2/5">
+                      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                          <img src="../posts/img-post-0004/differential_pair.png" alt="Differential Pair를 설명하는 이미지"
+                               class="w-full max-w-[480px] mx-auto h-auto object-contain">
+                      </div>
+                  </div>
+              </div>
+
+              <div class="flex flex-col md:flex-row gap-8 items-start mt-10 my-4">
+                  <div class="md:w-3/5">
+                      <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Length Matching</h3>
+                      <p class="mb-4">
+                          고속 신호에서는 Trace(Pattern)의 길이도 중요합니다. 특히 여러 신호가 동시에 처리되어야 하는 경우 신호의 도착 시간이 달라지면 문제가 발생할 수 있습니다.
+                      </p>
+                      <p class="mb-4">
+                          즉, 이런 신호들이 연결되는 Trace의 길이가 다르다면 도착하는 시간이 달라져 데이터가 잘못 처리될 수 있습니다.
+                          이 문제를 줄이기 위해 일부러 배선을 구불구불하게 만들어 Length Matching, 즉 길이를 맞춥니다.
+                      </p>
+                      <p class="mb-0">괜히 복잡하게 처리한 것이 아니라 신호의 도착 시간을 맞추기 위한 정밀 설계입니다.</p>
+                  </div>
+                  <div class="md:w-2/5">
+                      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                          <img src="../posts/img-post-0004/length_matching.png" alt="Length Matching을 설명하는 이미지"
+                               class="w-full max-w-[480px] mx-auto h-auto object-contain">
+                      </div>
+                  </div>
+              </div>
+
+              <div class="flex flex-col md:flex-row gap-8 items-start mt-10 my-4">
+                  <div class="md:w-3/5">
+                      <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Crosstalk</h3>
+                      <p class="mb-4">
+                          Crosstalk는 인접한 신호끼리 서로 영향을 주는 현상입니다.
+                      </p>
+                      <p class="mb-4">
+                          PCB에 그려진 개별 신호의 Trace(Pattern)은 완전히 독립적으로 보호되지 않고,
+                          서로 가까운 신호선끼리 전기적으로 영향을 주고받습니다.
+                      </p>
+                      <div class="my-8 p-4 sm:px-6 sm:py-3 rounded-2xl bg-slate-900/70 border border-slate-700">
+                          <p class="text-lg font-semibold text-white mb-0">마치 옆에 있는 사람이 큰 소리로 이야기하면 내 대화가 잘 안 들리는 것과 비슷합니다.</p>
+                      </div>
+                      <p class="mb-0">Crosstalk을 줄이는 방법으로는 Pattern간 거리 확보, Ground Plane 활용, Layer 변경, Routing 방향 조절 등이 있습니다.</p>
+                  </div>
+                  <div class="md:w-2/5">
+                      <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                          <img src="../posts/img-post-0004/crosstalk.png" alt="Crosstalk과 개선 방법을 설명하는 이미지"
+                               class="w-full max-w-[480px] mx-auto h-auto object-contain">
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+          <!-- Section 4 -->
+          <section>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">
+                  4. 고속 디지털 PCB 설계의 필수 요소
+              </h2>
+              <p>
+                  고속 디지털 PCB 설계에서 중요한 개념으로 Signal Integrity(SI)와 Power Integrity(PI), 그리고 Electromagnetic Interference(EMI)가 있습니다.
+              </p>
+              
+              <div class="flex flex-col md:flex-row gap-8 items-start mt-10 my-4">
+                  <div class="md:w-1/3">
+                      <img src="../posts/img-post-0004/signal_integrity.png" alt="Signal Integrity를 설명하는 이미지"
+                           class="w-full max-w-[520px] mx-auto h-auto object-contain rounded-2xl border border-slate-800">
+                  </div>
+                  <div class="md:w-2/3">
+                      <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Signal Integrity (SI)</h3>
+                      <p class="mb-4">Signal Integrity란 신호가 원하는 형태로 정확하게 전달되는지를 의미합니다.</p>
+                      <p class="mb-4">
+                          이상적인 디지털 신호는 수직으로 꺾이는 톱니모양 형태입니다. 하지만 실제 PCB에서는 신호반사, 노이즈, Crosstalk, 손실등으로 인해 신호가 변형됩니다.
+                      </p>
+                      <p class="mb-4">신호가 너무 많이 왜곡되면 데이터 오류, 통신 실패 등으로 시스템이 작동하지 않게 됩니다.</p>
+                  </div>
+              </div>
+
+
+              <div class="flex flex-col md:flex-row gap-8 items-start mt-10 my-4">
+                  <div class="md:w-1/3">
+                      <img src="../posts/img-post-0004/power_integrity.png" alt="Power Integrity를 설명하는 이미지"
+                           class="w-full max-w-[520px] mx-auto h-auto object-contain rounded-2xl border border-slate-800">
+                  </div>
+                  <div class="md:w-2/3">
+                      <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">Power Integrity (PI)</h3>
+                      <p class="mb-4">Power Integrity는 전원이 안정적으로 공급되는지를 의미합니다.</p>
+                      <p class="mb-4">전자부품이 작동하려면 안정적인 전원 공급이 필요합니다. 하지만 CPU처럼 많은 전류를 요구하는 부품은 작동할 때에 전압이 흔들릴 수 있습니다.</p>
+                      <p>이를 해결하기 위해 Power Plane 설계, Decoupling Capacitor 배치, 전원 경로 최적화 등이 필요합니다.</p>
+                  </div>
+              </div>
+
+
+              <div class="flex flex-col md:flex-row gap-8 items-start mt-10 my-4">
+                  <div class="md:w-1/3">
+                      <img src="../posts/img-post-0004/emi.png" alt="PCB의 Electromagnetic Interference를 설명하는 이미지"
+                           class="w-full max-w-[520px] mx-auto h-auto object-contain rounded-2xl border border-slate-800">
+                  </div>
+                  <div class="md:w-2/3">
+                      <h3 class="text-xl sm:text-2xl font-bold text-white mb-4">EMI (Electromagnetic Interference)</h3>
+                      <p class="mb-4">
+                          PCB에서 고속 신호가 패턴 위를 지나가면 패턴이 작은 안테나처럼 동작하여 전자파를 방출할 수 있습니다.
+                          이것을 고려하지 않으면 PCB가 동작할 때에 주변의 다른 제품에 영향을 주어 통신 오류를 발생시킬 수 있고, 인증을 통과하지 못할 수 있습니다.
+                      </p>
+                      <p class="mb-4">
+                          따라서 이러한 전자파 간섭을 억제하고 외부 방해로부터 제품의 정상 작동을 보장하는 EMC(전자파 적합성) 설계가 필수적입니다.
+                      </p>
+                      <p class="font-semibold text-white">
+                          PCB Layout은 단순히 부품을 배치하고 신호를 연결하는 작업이 아니라, 제품간 간섭이나 인증까지 영향을 미치는 중요한 과정입니다.
+                      </p>
+                  </div>
+              </div>
+          </section>
+          
+          <br>
+          
+          <!-- Closing -->
+          <section class="mt-14">
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mb-5 border-l-4 border-neonBlue-400 pl-4">
+                  마무리
+              </h2>
+              <div class="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-neonBlue-500/10 to-slate-900 border border-slate-700">
+                  <p class="mb-4">
+                      PCB Layout은 마치 어떤 도시를 설계하는 것처럼 전자부품을 배치하고 서로 신호를 주고 받을 수 있도록 설계하는 작업으로,
+                      회로도를 실제의 모습으로 바꾸어 만드는 단계입니다.
+                  </p>
+                  <p class="mb-4">
+                      좋은 PCB Layout은 단순히 부품을 예쁘게 배치하고 신호를 연결하는 것이 다가 아닙니다.
+                      신호가 깨끗하게 이동하고, 전원이 안정적으로 공급되며, 노이즈가 적고, 제조가 용이하며,
+                      오랫동안 안정적으로 동작하는 PCB를 만드는 것입니다.
+                  </p>
+                  <p>결국, PCB Layout은 전기, 물리, 제조 기술이 모두 결합된 종합 공학 분야입니다.</p>
+                  <p class="mb-4">
+                      다음 편에서는 PCB Layout의 기반이 되는 PCB Library(회로도 Symbol과 Footprint)에 대해 알아보겠습니다.
+                  </p>
+                  <p class="mb-0">
+                      PCB는 결국 부품의 집합으로 만들어지며, 그 부품을 정확하게 표현하는 Library가 없으면 좋은 Layout을 설계할 수 없습니다.
+                  </p>
+              </div>
+          </section>
+
+        </article>
+        
+        <!--
+        <div class="mt-16 p-6 rounded-2xl bg-techdark-900 border border-slate-800 flex justify-between items-center">
+            <div>
+                <h4 class="font-bold text-white text-sm">기술 자문 문의</h4>
+                <p class="text-xs text-slate-400 mt-1">전자 데이터 통합 관리나 EDA 환경 자문이 필요하신가요?</p>
+            </div>
+            <a href="../index.html" class="px-4 py-2 text-xs font-bold bg-neonBlue-500 text-white rounded-lg hover:bg-neonBlue-600 transition">
+                문의하기
+            </a>
+        </div>
+        -->
+    </main>
+
+</body>
+</html>
