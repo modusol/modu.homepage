@@ -14,7 +14,7 @@ async function loadNewsFeed() {
           <h3 class="text-lg font-bold text-white mt-2 mb-3">${post.title}</h3>
           <p class="text-sm text-slate-400 leading-relaxed mb-4">${post.summary}</p>
           <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-800/80 pt-4">
-            <span>작성자: ${post.author}</span>
+            <span>모두의 CAD 연구소</span>
             <span>등록일: ${post.date}</span>
             <!-- <span>조회수 ${post.views}</span> -->
           </div>
