@@ -73,7 +73,7 @@
             </strong></p>
             </section>
 
-            <div class="mx-10 my-10 p-6 sm:p-8 rounded-2xl border border-neonBlue-500/30 bg-neonBlue-500/5">
+            <div class="mx-0 sm:mx-10 my-10 p-6 sm:p-8 rounded-2xl border border-neonBlue-500/30 bg-neonBlue-500/5">
                 <p class="font-semibold text-white">
                     좋은 PCB 개발 프로세스는 “각 팀이 열심히 일하는 것”을 넘어,
                     <span class="text-neonCyan-400">팀 간 협업이 원활하게 이루어지고 결정사항과 변경사항이 다음 단계에 정확히 전달되며 추적될 수 있는 구조</span>를 갖추는 것입니다.
@@ -113,7 +113,7 @@
                         </p>
 
 
-                        <ul class="space-y-4 list-disc pl-12 my-4 marker:text-neonCyan-400">
+                        <ul class="text-sm sm:text-base space-y-4 list-disc pl-12 my-4 marker:text-neonCyan-400">
                             <li>
                                 <span class="shrink-0 font-bold text-white">시장과 고객 요구 파악</span>
                                 <span>- 고객이 원하는 기능, 경쟁제품의 특징, 목표 가격대, 예상 판매량을 조사합니다.</span>
@@ -128,7 +128,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="md:w-1/3">
+                    <div class="mx-8 sm:mx-0 md:w-1/3">
                         <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
                             <img src="../posts/img-post-0008/market_research.png" alt="시장조사, 제품구상" class="w-full max-w-[560px] mx-auto h-auto object-contain">
                         </div>
@@ -159,9 +159,9 @@
                     “기구적으로 그 위치에는 부품이 있으면 안됩니다” 같은 문제를 뒤늦게 발견하기 쉽습니다.
                 </p>
 
-                <div class="mx-8 my-8 px-6 py-2 rounded-2xl border border-neonBlue-500/30 bg-neonBlue-500/5">
+                <div class="sm:mx-8 sm:my-8 sm:px-4 py-2 sm:rounded-2xl sm:border sm:border-neonBlue-500/30 sm:bg-neonBlue-500/5">
 
-                    <ul class="space-y-2 list-disc pl-12 my-4 marker:text-neonCyan-400">
+                    <ul class="text-sm sm:text-base space-y-2 list-disc pl-12 my-4 mr-4 marker:text-neonCyan-400">
                         <li>System Block Diagram 작성 및 주요 인터페이스 정의</li>
                         <li>전원 구조(Power Tree), 예상 전력·열 예산, 주요 통신 대역폭 산정</li>
                         <li>기구 공간과 PCB 외형, 커넥터 위치, 주요 부품 높이 제약의 초기 협의</li>
@@ -169,12 +169,13 @@
                     </ul>
 
                     <!-- 이미지 위치: 시스템 블록도 / Power Tree / 기구 제약 협의 예시 -->
-                    <div class="rounded-2xl mx-8 overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
-                        <img src="../posts/img-post-0008/system_architecture.png"
-                             alt="시스템 블록과 전원 구조 및 기구 제약조건을 함께 정의하는 예시"
-                             class="w-full h-auto object-contain">
+                    <div class="mx-8 my-8">
+                        <div class="rounded-2xl max-w-2xl mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50">
+                            <img src="../posts/img-post-0008/system_architecture.png"
+                                 alt="시스템 블록과 전원 구조 및 기구 제약조건을 함께 정의하는 예시"
+                                 class="w-full h-auto object-contain">
+                        </div>
                     </div>
-                    
                 </div>
 
                 <p>
@@ -190,13 +191,21 @@
                     주요 참여 팀: 회로설계, 부품기술/Component Engineering, 구매, 품질
                 </p>
 
-                <div class="flex flex-col md:flex-row gap-8 items-start mx-16 my-4 py-4">
-                    <div class="md:w-1/3">
-                        <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
-                            <img src="../posts/img-post-0008/supply_disruption.png" alt="수급불안정" class="w-full max-w-[560px] mx-auto h-auto object-contain">
+                <div class="flex flex-col md:flex-row gap-4 md:gap-10 items-start my-4 py-4">
+
+                    <!-- 이미지: 정사각형 -->
+                    <div class="mx-4 md:mx-0">
+                        <div class="order-2 md:order-1 w-full mx-auto max-w-[360px] md:w-[200px] md:flex-shrink-0">
+                            <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                                <img src="../posts/img-post-0008/supply_disruption.png"
+                                     alt="수급불안정"
+                                     class="w-full h-full object-contain">
+                            </div>
                         </div>
                     </div>
-                    <div class="md:w-2/3">
+
+                    <!-- 텍스트: 나머지 공간 사용 -->
+                    <div class="order-1 md:order-2 w-full md:flex-1 md:min-w-0">
                         <p class="mb-4">
                             엔지니어는 성능이 좋은 부품을 사용하고 싶지만, 구매팀은 가격·납기와 공급사의 신뢰도를,
                             품질팀은 신뢰성과 부품 인증정보를 봅니다.
@@ -206,9 +215,10 @@
                             제품은 훌륭하지만 만들어 팔 수 없게 됩니다.
                         </p>
                         <p class="mb-4">
-                            따라서 부품을 선택할 때는 데이터시트 이외에도 가격·납기·공급망·품질·인증 정보를 함께 확인해야 합니다
+                            따라서 부품을 선택할 때는 데이터시트 이외에도 가격·납기·공급망·품질·인증 정보를 함께 확인해야 합니다.
                         </p>
                     </div>
+
                 </div>
 
                 <p>
@@ -234,7 +244,7 @@
                     대체부품 가능성, PCB 설계의도, 테스트 포인트까지 함께 고민해야 합니다.
                 </p>
 
-                <ul class="space-y-1 list-disc pl-12 my-4 marker:text-neonCyan-400">
+                <ul class="text-sm sm:text-base space-y-1 list-disc pl-12 my-4 marker:text-neonCyan-400">
                     <li><strong class="text-white">회로 작성</strong> - CPU/MCU, Memory, Power, Sensor, Communication 등 기능 블록별 회로를 구성합니다.</li>
                     <li><strong class="text-white">부품 속성 관리</strong> - Part Number, 제조사, 정격, Package, 구매정보, BOM 속성을 정확히 연결합니다.</li>
                     <li><strong class="text-white">전기 규칙 검토</strong> - ERC, 핀 연결 오류, 전원 핀 누락, 신호 방향 오류 등을 확인합니다.</li>
@@ -242,18 +252,19 @@
                     <li><strong class="text-white">PCB로 넘길 설계 의도 표시</strong> - Critical Net, Differential Pair, Impedance, 길이 조건, 전류가 큰 전원망 등 Layout에 필요한 제약조건을 명확히 전달합니다.</li>
                 </ul>
                 
-                <div class="rounded-2xl max-w-[640px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                <div class="mx-8 md:mx-0">
+                <div class="rounded-2xl md:max-w-[640px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
                     <img src="../posts/img-post-0008/schematic_design.png"
                          alt="회로도 설계와 PCB로 전달되는 설계 의도"
                          class="w-full h-auto object-contain">
                 </div>
-                
+                </div>
                 <p>
                     <strong class="text-white">주요 산출물:</strong>
                     Schematic, 초기 BOM, Netlist/Design Database, 회로검토 체크리스트·Review 기록, 설계 제약조건
                 </p>
 
-                <div class="relative my-12 p-6 sm:p-8 rounded-2xl
+                <div class="relative my-12 p-6 sm:p-8
                             border border-emerald-400/30 border-l-[6px] border-l-emerald-400
                             bg-emerald-400/10 overflow-hidden">
 
@@ -299,19 +310,19 @@
                                         이러한 정보가 사람의 기억이나 Excel 파일, 이메일 등에 개별적으로 흩어져 관리된다면 같은 내용을 여러 차례 재입력해야 하고,
                                         변경된 정보가 다음 단계에 제대로 전달되지 않는 문제가 발생할 수 있습니다.
                                     </p>
-                                    <p class="mb-4">
+                                    <p class="mb-0 md:mb-4">
                                         예를 들어 회로에서 부품을 변경했는데 BOM에는 이전 부품이 남아 있거나,
                                         회로설계자가 지정한 중요한 정보들이 PCB Layout에 전달되지 않는 식입니다.
                                     </p>
                                 </div>
                                 <div class="md:w-2/5">
-                                    <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                                    <div class="mx-4 md:mx-0 rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
                                         <img src="../posts/img-post-0008/input_again.png" alt="수급불안정" class="w-full max-w-[560px] mx-auto h-auto object-contain">
                                     </div>
                                 </div>
                             </div>
 
-                            <p class="mb-4">
+                            <p class="my-4 md:my-0 md:mb-4">
                                 따라서 회로도 설계 단계에서부터 Library, 설계 제약조건, PCB Layout, BOM, 변경이력 등이
                                 서로 원활하게 연결될 수 있는 시스템과 프로세스를 갖추는 것은 매우 중요합니다.
                                 좋은 PCB 개발 환경은 각 단계에서 만들어진 데이터를 다음 단계로, 또는 단계를 순환하며
@@ -330,12 +341,12 @@
                                      class="w-full h-auto object-contain">
                             </div>
 
-                            <blockquote class="relative mt-10 max-w-3xl mx-auto px-8 sm:px-10 py-8
-                                               bg-slate-900/70 border border-slate-700/70
-                                               rounded-2xl">
+                            <blockquote class="relative mt-10 sm:max-w-3xl sm:mx-auto sm:px-8 sm:px-10 py-8
+                                               sm:bg-slate-900/70 sm:border border-slate-700/70
+                                               sm:rounded-2xl">
 
                                 <!-- 장식용 큰 따옴표 -->
-                                <span class="absolute top-2 left-5 text-6xl sm:text-7xl
+                                <span class="absolute top-2 sm:left-5 text-6xl sm:text-7xl
                                              font-serif text-white leading-none select-none">
                                     “
                                 </span>
@@ -377,13 +388,13 @@
                         <div class="flex flex-col md:flex-row gap-8 items-start my-4 py-4">
                             <div class="md:w-2/3">
                                 <h3 class="text-lg font-bold text-white mb-2">1) PCB 구조와 배치 계획</h3>
-                                <ul class="space-y-2 list-disc pl-8 my-4 marker:text-neonCyan-400">
+                                <ul class="text-sm sm:text-base space-y-2 list-disc pl-8 my-4 marker:text-neonCyan-400">
                                     <li>Board Outline, Mounting Hole, Connector 위치 등 기구 조건을 MCAD와 맞춥니다.</li>
                                     <li>Stack-up, Layer 수, 재질, Copper 두께, Impedance 조건을 제조사·분석 담당과 협의합니다.</li>
                                     <li>CPU, Memory, Power, Connector 등 핵심부품을 기능과 신호흐름, 발열을 고려해 배치합니다.</li>
                                 </ul>
                             </div>
-                            <div class="md:w-1/3">
+                            <div class="mx-8 md:mx-0 md:w-1/3">
                                 <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
                                     <img src="../posts/img-post-0008/pcb_floorplan.png" alt="PCB 구조와 배치 계획" class="object-contain">
                                 </div>
@@ -392,14 +403,14 @@
                         <h3 class="text-lg font-bold text-white mb-2">2) 배선과 분석</h3>
                         <div class="flex flex-col md:flex-row gap-8 items-start my-0 py-4">
                             <div class="md:w-2/3">
-                                <ul class="space-y-2 list-disc pl-8 my-0 marker:text-neonCyan-400">
+                                <ul class="text-sm sm:text-base space-y-2 list-disc pl-8 my-0 marker:text-neonCyan-400">
                                     <li><strong class="text-white">고속신호</strong> - Differential Pair, 길이 Matching, Impedance, Return Path 등을 고려합니다.</li>
                                     <li><strong class="text-white">전원·접지</strong> - Plane 구조, 전류 용량, Via 구성, 전압강하와 노이즈를 확인합니다.</li>
                                     <li><strong class="text-white">발열·EMC</strong> - 고발열 부품, 전류 Loop를 고려하고, 전자기에 민감한 Analog/RF 영역을 분리·최적화합니다.</li>
                                     <li><strong class="text-white">검증</strong> - DRC, Constraint Check, 필요 시 SI/PI/열/EMI Simulation을 수행하고 결과를 반영합니다.</li>
                                 </ul>
                             </div>
-                            <div class="md:w-1/3">
+                            <div class="mx-8 md:mx-0 md:w-1/3">
                                 <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
                                     <img src="../posts/img-post-0008/route_analysis.png" alt="배선과 분석" class="object-contain">
                                 </div>
@@ -418,7 +429,7 @@
                                     생산팀에게 “알아서 만들어 주세요”라고 넘겨서 될 것이 아니라 DFM / DFA 를 통해 제품을 만들 수 있는 설계를 해야만 합니다.
                                 </p>
                             </div>
-                            <div class="md:w-1/3">
+                            <div class="mx-8 md:mx-0 md:w-1/3">
                                 <div class="rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
                                     <img src="../posts/img-post-0008/dfx.png" alt="제조·조립성을 고려한 마무리" class="object-contain">
                                 </div>
@@ -445,16 +456,18 @@
                     PCB Layout이 끝났다고 바로 공장을 움직일 수는 없습니다. 제조에 필요한 여러 데이터를 만들어 승인을 받고, 추적할 수 있도록 보관해야 합니다.
                     마치 관공서에 서류를 제출하는 것처럼 놓치거나 잘못된 것이 없어야 합니다.
                 </p>
-                <div class="mx-8 my-8 px-6 py-4 rounded-2xl border border-neonBlue-500/30 bg-neonBlue-500/5">
-                    <ul class="space-y-3 list-disc pl-8 marker:text-neonCyan-400">
+                <div class="sm:mx-8 sm:my-8 sm:px-6 py-6 sm:rounded-2xl sm:border sm:border-neonBlue-500/30 sm:bg-neonBlue-500/5">
+                    <ul class="text-sm sm:text-base space-y-3 list-disc pl-8 marker:text-neonCyan-400">
                         <li><strong class="text-white">PCB 제작 데이터</strong> - Gerber와 Drill, ODB++ 또는 IPC-2581, Fabrication Drawing, Stack-up, Impedance 정보 등</li>
                         <li><strong class="text-white">조립 데이터</strong> - BOM, Pick &amp; Place, Assembly Drawing, 특수 공정 지시</li>
                         <li><strong class="text-white">문서 관리</strong> - Revision, 승인자, Release Date, 변경이력(ECO/ECN)을 기록하고 모든 데이터의 버전을 연결하여 보관합니다.</li>
                         <li><strong class="text-white">문제 대응</strong> - 문제가 발생하면 설계 의도를 확인하면서 대응하거나, 필요하다면 설계를 수정하여 다시 앞의 과정을 반복합니다.</li>
                     </ul>
                     <!-- 이미지 위치: CAD 데이터가 Fabrication/Assembly Package로 Release되는 과정 -->
-                    <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 mt-8">
-                        <img src="../posts/img-post-0008/design_release.png" alt="설계 Release와 제조 데이터 패키지" class="w-full h-auto object-contain">
+                    <div class="mx-8 sm:mx-0">
+                        <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 mt-8">
+                            <img src="../posts/img-post-0008/design_release.png" alt="설계 Release와 제조 데이터 패키지" class="w-full h-auto object-contain">
+                        </div>
                     </div>
                 </div>
                 <p>
@@ -501,8 +514,10 @@
                     </div>
                 </div>
                 <!-- 이미지 위치: Bare PCB 제작부터 SMT 조립까지의 흐름 -->
-                <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 mb-8">
-                    <img src="../posts/img-post-0008/fabrication_smt.png" alt="PCB 제작과 SMT 조립 과정" class="w-full h-auto object-contain">
+                <div class="mx-4 sm:mx-0">
+                    <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 mb-8">
+                        <img src="../posts/img-post-0008/fabrication_smt.png" alt="PCB 제작과 SMT 조립 과정" class="w-full h-auto object-contain">
+                    </div>
                 </div>
                 <p>
                     <strong class="text-white">주요 산출물:</strong> 조립이 완성된 PCB, 제조검사 결과(AOI·X-ray·공정검사 Report 등), 자재 투입기록, 불량·Rework 기록
@@ -523,7 +538,7 @@
                     “전원이 켜지니까 성공”이라고 생각하는 것은 순간의 행복으로 끝나는 경우가 많습니다.
                 </p>
                 </p>
-                <ul class="space-y-3 list-disc pl-12 my-6 marker:text-neonCyan-400">
+                <ul class="text-sm sm:text-base space-y-3 list-disc pl-12 my-6 marker:text-neonCyan-400">
                     <li><strong class="text-white">기본 브링업</strong> - Open/Short 체크, Current, Clock, Reset, Boot 여부 확인</li>
                     <li><strong class="text-white">기능시험</strong> - 인터페이스, Sensor, 통신, I/O, Memory, 주변장치 동작 검증</li>
                     <li><strong class="text-white">성능·Stress 시험</strong> - 온도, 전압, 부하, 장시간 동작, 고속통신 Margin 등 검토</li>
@@ -531,8 +546,10 @@
                     <li>시험 결과를 요구사항과 연결해 Pass/Fail을 추적하고, 미해결 Issue의 Owner와 Due Date를 관리</li>
                 </ul>
                 <!-- 이미지 위치: Bring-up에서 시험·인증으로 이어지는 검증 흐름 -->
-                <div class="rounded-2xl max-w-[680px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
-                    <img src="../posts/img-post-0008/bringup_test.png" alt="Bring-up 시험 및 인증 과정" class="w-full h-auto object-contain">
+                <div class="mx-8 sm:mx-0">
+                    <div class="rounded-2xl max-w-[680px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                        <img src="../posts/img-post-0008/bringup_test.png" alt="Bring-up 시험 및 인증 과정" class="w-full h-auto object-contain">
+                    </div>
                 </div>
                 <p>
                     <strong class="text-white">주요 산출물:</strong> 브링업 Checklist, Test Report, 인증 성적서, Issue List, 원인·개선 Report
@@ -553,16 +570,16 @@
                         <p>
                             시제품 Revision A가 한 번에 양산품이 되는 경우보다 A→B→C 를 거치며 개선되는 경우가 더 많습니다.
                         </p>
-                        <div class="my-4 px-8 py-6 sm:p-6 rounded-2xl border border-neonBlue-500/30 bg-neonBlue-500/5">
+                        <div class="my-4 px-8 pt-6 sm:p-6 rounded-2xl border border-neonBlue-500/30 bg-neonBlue-500/5">
                             <p class="text-lg font-semibold text-white mb-0">
                                 중요한 것은 <span class="text-neonCyan-400">“수정의 교훈”</span>, 즉 왜 수정했는지와 어디까지 영향이 있는지를 관리하는 것입니다.
                                 그래서 ECO/ECN, Revision 관리, 승인 절차, 문제·조치 기록이 중요합니다.
                             </p>
                         </div>
                     </div>
-                    <div class="md:w-1/3">
+                    <div class="w-full md:w-1/3">
                         <!-- 이미지 위치: Revision A → B → C로 반복 개선되는 Iteration -->
-                        <div class="rounded-2xl max-w-[660px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/5">
+                        <div class="rounded-2xl max-w-[320px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/5">
                             <img src="../posts/img-post-0008/iteration.png" alt="PCB 개발의 반복적인 Iteration과 Revision 관리" class="w-full h-auto object-contain">
                         </div>
                     </div>
@@ -612,8 +629,10 @@
                     </div>
                 </div>
                 <!-- 이미지 위치: NPI에서 양산, Field, EOL까지 이어지는 제품 수명주기 -->
-                <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
-                    <img src="../posts/img-post-0008/product_lifecycle.png" alt="NPI 양산 유지보수로 이어지는 제품 수명주기" class="w-full h-auto object-contain">
+                <div class="mx-8 sm:mx-0">
+                    <div class="rounded-2xl max-w-[700px] mx-auto overflow-hidden border border-slate-800 bg-techdark-900/50 my-8">
+                        <img src="../posts/img-post-0008/product_lifecycle.png" alt="NPI 양산 유지보수로 이어지는 제품 수명주기" class="w-full h-auto object-contain">
+                    </div>
                 </div>
                 <p>
                     <strong class="text-white">주요 산출물:</strong> NPI/Pilot Report, 양산승인 기록, Control Plan/검사기준, Yield·불량 분석자료, PCN/EOL 검토, 양산 ECO/ECN
@@ -623,7 +642,7 @@
             <!-- Section 9 -->
             <section>
                 <h2 class="text-2xl sm:text-3xl font-bold text-white mt-14 mb-5 border-l-4 border-neonBlue-400 pl-4">9. 프로세스가 잘 돌아가는 회사의 공통점</h2>
-                <div class="flex flex-col md:flex-row gap-8 items-start my-4 py-4">
+                <div class="flex flex-col md:flex-row md:gap-8 items-start my-4 py-4">
                     <div class="md:w-2/3">
                         <div class="px-4 py-4 rounded-xl bg-slate-900/70 border border-slate-800">
                             <h3 class="font-bold text-neonCyan-400 mb-2">
@@ -658,10 +677,12 @@
                             </p>
                         </div>
                     </div>
-                    <div class="md:w-1/3">
-                        <!-- 이미지 위치: 사람·프로세스·데이터·Review·변경관리가 연결된 개발환경 -->
-                        <div class="my-8 rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
-                              <img src="../posts/img-post-0008/good_process.png" alt="프로세스와 데이터 관리가 연결된 PCB 개발 환경" class="w-full h-auto object-contain">
+                    <div class="mx-8 md:mx-0 mx-auto">
+                        <div class="w-full md:w-1/3">
+                            <!-- 이미지 위치: 사람·프로세스·데이터·Review·변경관리가 연결된 개발환경 -->
+                            <div class="my-8 max-w-[320px] mx-auto rounded-2xl overflow-hidden border border-slate-800 bg-techdark-900/50">
+                                  <img src="../posts/img-post-0008/good_process.png" alt="프로세스와 데이터 관리가 연결된 PCB 개발 환경" class="w-full h-auto object-contain">
+                            </div>
                         </div>
                     </div>
                 </div>
