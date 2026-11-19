@@ -131,20 +131,24 @@
                             여러 신호 중 일부가 너무 일찍 또는 늦게 도착하면 데이터를 정확하게 읽기 어려워지고 오류가 발생할 수 있습니다.
                         </p>
                     </div>
-                    <div class="mx-8 sm:mx-0 w-full max-w-80 sm:max-w-[260px] min-w-0 shrink mx-auto">
-                        <img src="../posts/img-post-0009/signal-skew-timing.png" alt="DQ0~DQ3과 DQS 사이의 허용 타이밍 관계" class="w-full h-auto object-contain rounded-xl">
+                    <div class="mx-16 sm:mx-0">
+                        <div class="w-full max-w-320 sm:max-w-[260px] min-w-0 shrink mx-auto">
+                            <img src="../posts/img-post-0009/signal-skew-timing.png" alt="DQ0~DQ3과 DQS 사이의 허용 타이밍 관계" class="w-full h-auto object-contain rounded-xl">
+                        </div>
                     </div>
                 </div>
-                <p class="mb-4">
+                <p class="mt-8 sm:mt-0 mb-4 sm:mb-8">
                     비유하자면 여러 사람이 음식을 하나씩 들고 와서 정해진 시간에 한꺼번에 테이블에 올려놓아야 하는 상황과 비슷합니다. 누군가 지나치게 늦게 도착하면 식사를 준비하는 과정에 차질이 생길 수 있습니다.
                 </p>
-                <div class="rounded-2xl overflow-hidden max-w-[560px] mx-auto mb-10 border border-slate-800">
-                    <img src="../posts/img-post-0009/signal-skew-illustration.png" alt="여러 사람이 정해진 시각에 음식을 가져오는 비유" class="w-full h-auto object-contain">
+                <div class="mx-8 sm:mx-0">
+                    <div class="rounded-2xl overflow-hidden max-w-[560px] mx-auto mb-8 border border-slate-800">
+                        <img src="../posts/img-post-0009/signal-skew-illustration.png" alt="여러 사람이 정해진 시각에 음식을 가져오는 비유" class="w-full h-auto object-contain">
+                    </div>
                 </div>
                 <p class="mb-4">
                     이처럼 신호 간 도착 시간의 차이를 <strong class="text-slate-50">Skew</strong>라고 합니다.
                 </p>
-                <div class="mx-8 my-8 p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-700">
+                <div class="mx-0 sm:mx-8 my-8 p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-700">
                     <p class="text-lg sm:text-xl font-semibold text-white mb-4">
                         PCB에서 신호가 이동할 때에는 일정한 속도를 가집니다. 예를 들어 특정 PCB 구조에서 신호의 전파지연이 약 6ps/mm 라면, 1mm를 이동하는 데에 6ps 가 걸리는 것입니다.
                     </p>
@@ -175,7 +179,7 @@
                     각 Lane은 P(Positive)와 N(Negative)으로 구성된 <strong class="text-slate-50">차동 신호(Differential Signal)</strong>를 사용합니다.
                     두 신호의 전압 차이로 데이터를 판별하기 때문에 외부 잡음에 강하다는 장점이 있습니다.
                 </p>
-                <div class="rounded-2xl overflow-hidden mx-8 sm:mx-16 mt-8 mb-10 border border-slate-800">
+                <div class="rounded-2xl overflow-hidden sm:mx-16 mt-8 mb-10 border border-slate-800">
                     <img src="../posts/img-post-0009/differential-signal.png" alt="차동 신호의 기본 원리" class="w-full h-auto object-contain">
                 </div>
                 <p class="mb-4">
@@ -198,7 +202,7 @@
                     PCB에서 필연적으로 신호 왜곡 발생하므로, 순간순간의 신호 변화가 안정되는 데에 걸리는 시간을 감안하면 0.1mm의 차이도 중요할 수 있습니다.
                 </p>
                 <div class="overflow-x-auto max-w-[600px] mx-auto my-8 rounded-xl border border-slate-700">
-                    <table class="w-full text-sm sm:text-base text-left">
+                    <table class="w-full text-sm text-left">
                         <tr class="bg-slate-700 text-white text-center">
                             <th class="px-4 py-2">인터페이스</th>
                             <th class="px-4 py-2">전송 속도</th>
@@ -226,7 +230,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="mx-10 my-8 p-6 sm:p-8 sm:px-12 sm:text-center rounded-2xl bg-slate-900/70 border border-slate-700">
+                <div class="sm:mx-10 my-8 p-6 sm:p-8 sm:px-12 sm:text-center rounded-2xl bg-slate-900/70 border border-slate-700">
                     <p class="text-lg sm:text-xl sm:mx-auto font-semibold text-white">
                         "하지만, 배선 길이를 똑같이 맞추는 것 만으로는 <br class="hidden sm:block">신호의 품질까지 보장되지는 않습니다."
                     </p>
@@ -316,8 +320,10 @@
                     귀환 전류가 가까운 경로를 따라 흐르기 어려워지면 다른 경로로 우회하게 됩니다.
                     귀환 전류가 우회하면서 신호 경로의 임피던스와 전자기적 특성이 달라지고, 신호 품질의 저하, EMI 문제로 이어질 수 있습니다.
                 </p>
-                <div class="rounded-2xl overflow-hidden mx-8 max-w-xl mx-auto mt-8 mb-10 border border-slate-800">
-                    <img src="../posts/img-post-0009/return-path.png" alt="Return Path 비교" class="w-full h-auto object-contain">
+                <div class="mx-8 sm:mx-0">
+                    <div class="rounded-2xl overflow-hidden max-w-xl mx-auto mt-8 mb-10 border border-slate-800">
+                        <img src="../posts/img-post-0009/return-path.png" alt="Return Path 비교" class="w-full h-auto object-contain">
+                    </div>
                 </div>
                 <p class="mb-4">
                     Return Path는 눈에 보이는 신호 배선만큼이나 중요한 전기적 설계 요소입니다.
@@ -360,8 +366,10 @@
                     PCB를 설계하여 실물을 제작했는데 정상적으로 작동하지 않으면 다시 작업하는 데에 많은 시간과 비용이 발생합니다.
                     그러면 고속 PCB를 설계할 때에 신호가 제대로 전달되고 전원이 안정적으로 공급되는지 미리 확인할 수 있을까요?
                 </p>
-                <div class="rounded-2xl overflow-hidden mx-8 max-w-xl mx-auto mt-8 mb-10 border border-slate-800">
-                    <img src="../posts/img-post-0009/failure.png" alt="설계 실패" class="w-full h-auto object-contain">
+                <div class="mx-8 sm:mx-0">
+                    <div class="rounded-2xl overflow-hidden mx-8 max-w-xl mx-auto mt-8 mb-10 border border-slate-800">
+                        <img src="../posts/img-post-0009/failure.png" alt="설계 실패" class="w-full h-auto object-contain">
+                    </div>
                 </div>
                 <p class="mb-4">
                     이를 위해 사용하는 기술이 <strong class="text-slate-50">SI(Signal Integrity)</strong>와 <strong class="text-slate-50">PI(Power Integrity)</strong> 해석입니다.
@@ -383,8 +391,10 @@
                 <p class="mb-4">
                     대표적인 분석 결과 중 하나가 Eye Diagram입니다.
                 </p>
-                <div class="rounded-2xl overflow-hidden mx-8 max-w-xl mx-auto mt-8 mb-10 border border-slate-800">
-                    <img src="../posts/img-post-0009/eye-diagram.png" alt="Eye Diagram 개념도" class="w-full h-auto object-contain">
+                <div class="mx-8 sm:mx-0">
+                    <div class="rounded-2xl overflow-hidden mx-8 max-w-xl mx-auto mt-8 mb-10 border border-slate-800">
+                        <img src="../posts/img-post-0009/eye-diagram.png" alt="Eye Diagram 개념도" class="w-full h-auto object-contain">
+                    </div>
                 </div>
                 <p class="mb-4">
                     Eye Diagram은 시뮬레이션으로 예측한 여러 비트 구간의 신호 파형을 겹쳐 표시하여 신호의 왜곡과 타이밍 오차를 보여줍니다.
@@ -405,8 +415,10 @@
                     전원을 공급하는 경로의 임피던스가 높거나 디커플링 커패시터의 구성·배치가 적절하지 않으면 전원 전압이 출렁거릴 수 있습니다.
                     이러한 <strong class="text-slate-50">전원 잡음</strong>은 신호의 타이밍과 품질에 영향을 주어 데이터 전송의 안정성을 떨어뜨릴 수 있습니다.
                 </p>
-                <div class="rounded-2xl overflow-hidden mx-8 max-w-xl mx-auto mt-8 mb-10 border border-slate-800">
-                    <img src="../posts/img-post-0009/power-noise.png" alt="전원 잡음의 이해" class="w-full h-auto object-contain">
+                <div class="mx-8 sm:mx-0">
+                    <div class="rounded-2xl overflow-hidden mx-8 max-w-xl mx-auto mt-8 mb-10 border border-slate-800">
+                        <img src="../posts/img-post-0009/power-noise.png" alt="전원 잡음의 이해" class="w-full h-auto object-contain">
+                    </div>
                 </div>
                 <p class="mb-4">
                     PI 분석에서는 주로 다음 사항을 확인합니다.
@@ -459,29 +471,29 @@
                     Constraint는 설계 제약조건 또는 설계 규칙을 의미합니다.
                     예를 들어 다음과 같은 조건을 정의할 수 있습니다.
                 </p>
-                <div class="overflow-x-auto mx-8 sm:mx-16 my-8 rounded-xl border border-slate-700">
-                    <table class="w-full text-sm sm:text-base text-left">
+                <div class="overflow-x-auto sm:mx-16 my-8 rounded-xl border border-slate-700">
+                    <table class="w-full text-sm text-left">
                         <tr class="bg-slate-800 text-white">
                             <th class="px-4 py-2">항목</th>
                             <th class="px-4 py-2">Constraint 예시</th>
                         </tr>
-                        <tr class="bg-slate-900/70 border-t border-slate-800">
+                        <tr class="text-xs sm:text-sm bg-slate-900/70 border-t border-slate-800">
                             <td class="px-4 py-2">DDR 데이터 신호</td>
                             <td class="px-4 py-2">DQ와 DQS 사이의 허용 타이밍 차이</td>
                         </tr>
-                        <tr class="bg-slate-900/70 border-t border-slate-800">
+                        <tr class="text-xs sm:text-sm  bg-slate-900/70 border-t border-slate-800">
                             <td class="px-4 py-2">PCIe 차동 신호</td>
                             <td class="px-4 py-2">목표 차동 임피던스</td>
                         </tr>
-                        <tr class="bg-slate-900/70 border-t border-slate-800">
+                        <tr class="text-xs sm:text-sm  bg-slate-900/70 border-t border-slate-800">
                             <td class="px-4 py-2">고속 신호</td>
                             <td class="px-4 py-2">배선간 간격(이격거리)과 최대 허용 배선 길이</td>
                         </tr>
-                        <tr class="bg-slate-900/70 border-t border-slate-800">
+                        <tr class="text-xs sm:text-sm  bg-slate-900/70 border-t border-slate-800">
                             <td class="px-4 py-2">Via</td>
                             <td class="px-4 py-2">최대 via 개수 또는 구조에 대한 제한</td>
                         </tr>
-                        <tr class="bg-slate-900/70 border-t border-slate-800">
+                        <tr class="text-xs sm:text-sm  bg-slate-900/70 border-t border-slate-800">
                             <td class="px-4 py-2">Layer</td>
                             <td class="px-4 py-2">허용 배선층과 기준면 조건</td>
                         </tr>
@@ -493,9 +505,11 @@
                 <p class="mb-4">
                     Constraint Management 시스템을 통해 이러한 규칙을 특정 신호 또는 신호 그룹에 적용하면, Layout 설계툴에서 위반 여부를 확인하면서 설계할 수 있습니다.
                 </p>
-                <div class="rounded-2xl overflow-hidden mx-8 max-w-2xl mx-auto mt-8 mb-10 border border-slate-800">
-                    <img src="../posts/img-post-0009/constraint-example.png" alt="Constraint 사용 예제" class="w-full h-auto object-contain">
-                </div>                
+                <div class="mx-8 sm:mx-0">
+                    <div class="rounded-2xl overflow-hidden mx-8 max-w-2xl mx-auto mt-8 mb-10 border border-slate-800">
+                        <img src="../posts/img-post-0009/constraint-example.png" alt="Constraint 사용 예제" class="w-full h-auto object-contain">
+                    </div>
+                </div>
                 <h3 class="text-xl sm:text-2xl font-bold text-white mt-10 mb-4">
                     8-2. 규칙의 출처와 변경 이력도 필요합니다
                 </h3>
