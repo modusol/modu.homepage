@@ -23,15 +23,37 @@
     </script>
 </head>
 <body class="bg-techdark-950 text-slate-100 font-sans min-h-screen flex flex-col">
-    <header class="bg-techdark-900/90 border-b border-slate-800 py-4 px-6 sticky top-0 z-50 backdrop-blur-md">
-        <div class="max-w-4xl mx-auto flex justify-between items-center">
-            <a href="#" onclick="history.back(); return false;" class="inline-flex items-center text-sm font-medium text-slate-300 hover:text-slate-300 cursor-pointer">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                </svg>
-                이전 페이지로
+
+    <header class="bg-techdark-900/90 border-b border-slate-800 py-3 px-4 sm:px-6 sticky top-0 z-50 backdrop-blur-md
+                   after:content-[''] after:absolute after:top-full after:left-0 after:w-full after:h-8 after:bg-techdark-950">
+        <div class="max-w-4xl mx-auto grid grid-cols-[1fr_auto_1fr] items-start gap-2 sm:gap-4">
+            <!-- 이전 페이지 -->
+            <a href="#" onclick="history.back(); return false;"
+               class="justify-self-start inline-flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium text-slate-300 hover:text-white transition-colors">
+                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                <span>이전<span class="hidden sm:inline"> 페이지로</span></span>
             </a>
-            <span class="text-xs text-neonCyan-400 font-mono">MODUCAD TECH ARTICLE</span>
+
+            <!-- 모두의 CAD 홈페이지 -->
+            <a href="../index.html" aria-label="모두의 CAD 홈페이지로 이동"
+               class="justify-self-center inline-flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium text-red-600 hover:text-white transition-colors">
+               <i class="fa-solid fa-house" aria-hidden="true"></i>
+               <span class="[-webkit-text-stroke:2px] hover:[-webkit-text-stroke:1.2px]
+                           select-none drop-shadow-[0_2px_10px_rgba(220,38,38,0.25)]">
+                  MODU
+              </span>
+            </a>
+
+            <!-- 홈페이지 기술자료 섹션 -->
+            <a href="../index.html#news"
+               class="relative top-[1px] justify-self-end text-xs sm:text-sm text-neonCyan-400 hover:text-white font-mono font-semibold tracking-tight sm:tracking-normal text-right transition-colors">
+                <span class="hidden sm:inline">MODU TECH ARTICLE</span>
+                <span class="sm:hidden">TECH ARTICLE</span>
+            </a>
+        </div>
+        <div class="absolute top-full left-0 w-full h-16
+                    bg-gradient-to-b from-techdark-950 to-transparent
+                    pointer-events-none">
         </div>
     </header>
 
